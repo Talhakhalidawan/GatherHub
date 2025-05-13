@@ -1,0 +1,640 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Replies</title>
+{% endblock %}
+{% block favicon %}
+<link rel="icon" type="image/png" sizes="16x16" href="https://i.postimg.cc/PJmtfZ79/LOGO-modified.png' border='0' alt='LOGO-modified">
+{% endblock  %}
+
+{% block body %}
+
+<section class="post-box comment-toggle">
+    <div class="container post-content">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-lg-10 col-xl-8">
+                <div class="card full-screen-post" style="border: none;">
+                    <div class="card-body" id="separator">
+
+                        <h3 class="mb-4">Comment Replies</h3>
+                        <div id="comment-{{ comment.comment_id }}" class="comment-section ms-4" id="display-data">
+                            <div class="mt-2">
+                                <div class="d-flex flex-start w-100">
+                                    <div class=" parent-image-4 me-1">
+                                        <img class="rounded-circle" src="{{comment.commenter.Profile_image.url}}"
+                                            alt="avatar" width="36" height="36" />  
+                                    </div>
+                                    <div class="">
+                                        <div class="col-12">
+                                            <div class="form-control comment-card " style="background-color: #2a2f33;">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span>
+                                                        <a href="/user_profile/{{comment.commenter.uid}}" class="text-light" style="text-decoration: none; font-weight: bold;">
+                                                            {{comment.commenter.user.first_name }} {{ comment.commenter.user.last_name }}
+                                                            {% if comment.commenter.verified %}
+                                                            <span>
+                                                                <svg style="margin-top: -2px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 26" fill="none">
+                                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                                    <g id="SVGRepo_iconCarrier">
+                                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.5924 3.20027C9.34888 3.4078 9.22711 3.51158 9.09706 3.59874C8.79896 3.79854 8.46417 3.93721 8.1121 4.00672C7.95851 4.03705 7.79903 4.04977 7.48008 4.07522C6.6787 4.13918 6.278 4.17115 5.94371 4.28923C5.17051 4.56233 4.56233 5.17051 4.28923 5.94371C4.17115 6.278 4.13918 6.6787 4.07522 7.48008C4.04977 7.79903 4.03705 7.95851 4.00672 8.1121C3.93721 8.46417 3.79854 8.79896 3.59874 9.09706C3.51158 9.22711 3.40781 9.34887 3.20027 9.5924C2.67883 10.2043 2.4181 10.5102 2.26522 10.8301C1.91159 11.57 1.91159 12.43 2.26522 13.1699C2.41811 13.4898 2.67883 13.7957 3.20027 14.4076C3.40778 14.6511 3.51158 14.7729 3.59874 14.9029C3.79854 15.201 3.93721 15.5358 4.00672 15.8879C4.03705 16.0415 4.04977 16.201 4.07522 16.5199C4.13918 17.3213 4.17115 17.722 4.28923 18.0563C4.56233 18.8295 5.17051 19.4377 5.94371 19.7108C6.278 19.8288 6.6787 19.8608 7.48008 19.9248C7.79903 19.9502 7.95851 19.963 8.1121 19.9933C8.46417 20.0628 8.79896 20.2015 9.09706 20.4013C9.22711 20.4884 9.34887 20.5922 9.5924 20.7997C10.2043 21.3212 10.5102 21.5819 10.8301 21.7348C11.57 22.0884 12.43 22.0884 13.1699 21.7348C13.4898 21.5819 13.7957 21.3212 14.4076 20.7997C14.6511 20.5922 14.7729 20.4884 14.9029 20.4013C15.201 20.2015 15.5358 20.0628 15.8879 19.9933C16.0415 19.963 16.201 19.9502 16.5199 19.9248C17.3213 19.8608 17.722 19.8288 18.0563 19.7108C18.8295 19.4377 19.4377 18.8295 19.7108 18.0563C19.8288 17.722 19.8608 17.3213 19.9248 16.5199C19.9502 16.201 19.963 16.0415 19.9933 15.8879C20.0628 15.5358 20.2015 15.201 20.4013 14.9029C20.4884 14.7729 20.5922 14.6511 20.7997 14.4076C21.3212 13.7957 21.5819 13.4898 21.7348 13.1699C22.0884 12.43 22.0884 11.57 21.7348 10.8301C21.5819 10.5102 21.3212 10.2043 20.7997 9.5924C20.5922 9.34887 20.4884 9.22711 20.4013 9.09706C20.2015 8.79896 20.0628 8.46417 19.9933 8.1121C19.963 7.95851 19.9502 7.79903 19.9248 7.48008C19.8608 6.6787 19.8288 6.278 19.7108 5.94371C19.4377 5.17051 18.8295 4.56233 18.0563 4.28923C17.722 4.17115 17.3213 4.13918 16.5199 4.07522C16.201 4.04977 16.0415 4.03705 15.8879 4.00672C15.5358 3.93721 15.201 3.79854 14.9029 3.59874C14.7729 3.51158 14.6511 3.40781 14.4076 3.20027C13.7957 2.67883 13.4898 2.41811 13.1699 2.26522C12.43 1.91159 11.57 1.91159 10.8301 2.26522C10.5102 2.4181 10.2043 2.67883 9.5924 3.20027ZM16.3735 9.86314C16.6913 9.5453 16.6913 9.03 16.3735 8.71216C16.0557 8.39433 15.5403 8.39433 15.2225 8.71216L10.3723 13.5624L8.77746 11.9676C8.45963 11.6498 7.94432 11.6498 7.62649 11.9676C7.30866 12.2854 7.30866 12.8007 7.62649 13.1186L9.79678 15.2889C10.1146 15.6067 10.6299 15.6067 10.9478 15.2889L16.3735 9.86314Z" fill="#ebac00"/>
+                                                                    </g>
+                                                                </svg>
+                                                            </span>
+                                                            {% endif %}
+                                                        </a>
+                                                    </span>
+                                                </div>
+                                                <small>{{ comment.comment_text }}</small>   
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between w-100">
+                                            <div class="d-flex justify-content-between">
+                                                {% if parent_loved %}
+                                                <a href="#" class="love-button ms-3" style="text-decoration: none;" data-comment-id="{{ comment.comment_id }}" data-loved="true">
+                                                    <svg id="love-svg-{{ comment.comment_id }}" fill="#FF0000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="15" height="15" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                                        <path d="M48,5c-4.418,0-8.418,1.791-11.313,4.687l-3.979,3.961c-0.391,0.391-1.023,0.391-1.414,0  c0,0-3.971-3.97-3.979-3.961C24.418,6.791,20.418,5,16,5C7.163,5,0,12.163,0,21c0,3.338,1.024,6.436,2.773,9  c0,0,0.734,1.164,1.602,2.031s24.797,24.797,24.797,24.797C29.953,57.609,30.977,58,32,58s2.047-0.391,2.828-1.172  c0,0,23.93-23.93,24.797-24.797S61.227,30,61.227,30C62.976,27.436,64,24.338,64,21C64,12.163,56.837,5,48,5z M57,22  c-0.553,0-1-0.447-1-1c0-4.418-3.582-8-8-8c-0.553,0-1-0.447-1-1s0.447-1,1-1c5.522,0,10,4.478,10,10C58,21.553,57.553,22,57,22z"></path>
+                                                    </svg>
+                                                </a>
+                                                {% else %}
+                                                <a href="#" class="love-button ms-3" style="text-decoration: none;" data-comment-id="{{ comment.comment_id }}" data-loved="false">
+                                                    <svg id="love-svg-{{ comment.comment_id }}" fill="white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="15" height="15" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                                      <path d="M48,5c-4.418,0-8.418,1.791-11.313,4.687l-3.979,3.961c-0.391,0.391-1.023,0.391-1.414,0  c0,0-3.971-3.97-3.979-3.961C24.418,6.791,20.418,5,16,5C7.163,5,0,12.163,0,21c0,3.338,1.024,6.436,2.773,9  c0,0,0.734,1.164,1.602,2.031s24.797,24.797,24.797,24.797C29.953,57.609,30.977,58,32,58s2.047-0.391,2.828-1.172  c0,0,23.93-23.93,24.797-24.797S61.227,30,61.227,30C62.976,27.436,64,24.338,64,21C64,12.163,56.837,5,48,5z M57,22  c-0.553,0-1-0.447-1-1c0-4.418-3.582-8-8-8c-0.553,0-1-0.447-1-1s0.447-1,1-1c5.522,0,10,4.478,10,10C58,21.553,57.553,22,57,22z"></path>
+                                                    </svg>
+                                                </a>
+                                                    {% endif %}
+                                                <p class="ms-2" style="font-size: 12px; margin-top: 5px;" id="loves-count-{{comment.comment_id}}">{{parent_likes_count}}</p>
+                                                </div>
+                                            <a href="/comment_replies/{{comment.comment_id}}" class="me-2"
+                                                style="text-decoration: none; font-size: 14px; margin-top: 2px; color: rgb(197, 197, 197);">
+                                                
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% for reply in replies %}
+
+                        <div id="comment-{{ reply.reply.comment_id }}" class="comment-section ms-5" id="display-data">
+                            <div class="mt-2">
+                                <div class="d-flex flex-start w-100">
+                                    <div class=" parent-image-4 me-1">
+                                        <img class="rounded-circle" src="{{reply.reply.commenter.Profile_image.url}}"
+                                            alt="avatar" width="36" height="36" />  
+                                    </div>
+                                    <div class="">
+                                        <div class="col-12">
+                                            <div class="form-control comment-card " style="background-color: #2a2f33;">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span>
+                                                        <a href="/user_profile/{{reply.reply.commenter.uid}}" class="text-light" style="text-decoration: none; font-weight: bold;">
+                                                            {{reply.reply.commenter.user.first_name }} {{ reply.reply.commenter.user.last_name }}
+                                                            {% if reply.reply.commenter.verified %}
+                                                            <span>
+                                                                <svg style="margin-top: -2px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 26" fill="none">
+                                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                                    <g id="SVGRepo_iconCarrier">
+                                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.5924 3.20027C9.34888 3.4078 9.22711 3.51158 9.09706 3.59874C8.79896 3.79854 8.46417 3.93721 8.1121 4.00672C7.95851 4.03705 7.79903 4.04977 7.48008 4.07522C6.6787 4.13918 6.278 4.17115 5.94371 4.28923C5.17051 4.56233 4.56233 5.17051 4.28923 5.94371C4.17115 6.278 4.13918 6.6787 4.07522 7.48008C4.04977 7.79903 4.03705 7.95851 4.00672 8.1121C3.93721 8.46417 3.79854 8.79896 3.59874 9.09706C3.51158 9.22711 3.40781 9.34887 3.20027 9.5924C2.67883 10.2043 2.4181 10.5102 2.26522 10.8301C1.91159 11.57 1.91159 12.43 2.26522 13.1699C2.41811 13.4898 2.67883 13.7957 3.20027 14.4076C3.40778 14.6511 3.51158 14.7729 3.59874 14.9029C3.79854 15.201 3.93721 15.5358 4.00672 15.8879C4.03705 16.0415 4.04977 16.201 4.07522 16.5199C4.13918 17.3213 4.17115 17.722 4.28923 18.0563C4.56233 18.8295 5.17051 19.4377 5.94371 19.7108C6.278 19.8288 6.6787 19.8608 7.48008 19.9248C7.79903 19.9502 7.95851 19.963 8.1121 19.9933C8.46417 20.0628 8.79896 20.2015 9.09706 20.4013C9.22711 20.4884 9.34887 20.5922 9.5924 20.7997C10.2043 21.3212 10.5102 21.5819 10.8301 21.7348C11.57 22.0884 12.43 22.0884 13.1699 21.7348C13.4898 21.5819 13.7957 21.3212 14.4076 20.7997C14.6511 20.5922 14.7729 20.4884 14.9029 20.4013C15.201 20.2015 15.5358 20.0628 15.8879 19.9933C16.0415 19.963 16.201 19.9502 16.5199 19.9248C17.3213 19.8608 17.722 19.8288 18.0563 19.7108C18.8295 19.4377 19.4377 18.8295 19.7108 18.0563C19.8288 17.722 19.8608 17.3213 19.9248 16.5199C19.9502 16.201 19.963 16.0415 19.9933 15.8879C20.0628 15.5358 20.2015 15.201 20.4013 14.9029C20.4884 14.7729 20.5922 14.6511 20.7997 14.4076C21.3212 13.7957 21.5819 13.4898 21.7348 13.1699C22.0884 12.43 22.0884 11.57 21.7348 10.8301C21.5819 10.5102 21.3212 10.2043 20.7997 9.5924C20.5922 9.34887 20.4884 9.22711 20.4013 9.09706C20.2015 8.79896 20.0628 8.46417 19.9933 8.1121C19.963 7.95851 19.9502 7.79903 19.9248 7.48008C19.8608 6.6787 19.8288 6.278 19.7108 5.94371C19.4377 5.17051 18.8295 4.56233 18.0563 4.28923C17.722 4.17115 17.3213 4.13918 16.5199 4.07522C16.201 4.04977 16.0415 4.03705 15.8879 4.00672C15.5358 3.93721 15.201 3.79854 14.9029 3.59874C14.7729 3.51158 14.6511 3.40781 14.4076 3.20027C13.7957 2.67883 13.4898 2.41811 13.1699 2.26522C12.43 1.91159 11.57 1.91159 10.8301 2.26522C10.5102 2.4181 10.2043 2.67883 9.5924 3.20027ZM16.3735 9.86314C16.6913 9.5453 16.6913 9.03 16.3735 8.71216C16.0557 8.39433 15.5403 8.39433 15.2225 8.71216L10.3723 13.5624L8.77746 11.9676C8.45963 11.6498 7.94432 11.6498 7.62649 11.9676C7.30866 12.2854 7.30866 12.8007 7.62649 13.1186L9.79678 15.2889C10.1146 15.6067 10.6299 15.6067 10.9478 15.2889L16.3735 9.86314Z" fill="#ebac00"/>
+                                                                    </g>
+                                                                </svg>
+                                                            </span>
+                                                            {% endif %}
+                                                        </a>
+                                                    </span>
+                                                    {% if reply.reply.commenter.user.id == request.user.id %}
+                                                    <a class="ml-auto stop-it">
+                        
+                                                        <div class="btn-group">
+                                                          <a class="" style="border: none;" href="#" role="button" data-bs-toggle="dropdown"
+                                                            aria-expanded="false">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 3 16" fill="white"
+                                                              class="bi bi-three-dots-vertical">
+                                                              <path
+                                                                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                                            </svg>
+                                                          </a>
+                                        
+                                                          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                                                            <li><a class="dropdown-item delete-comment"  id="delete-comment-id" data-comment-id="{{ reply.reply.comment_id }}"
+                                                                href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                                                  fill="none">
+                                                                  <path d="M10 12V17" stroke="white" stroke-width="2" stroke-linecap="round"
+                                                                    stroke-linejoin="round" />
+                                                                  <path d="M14 12V17" stroke="white" stroke-width="2" stroke-linecap="round"
+                                                                    stroke-linejoin="round" />
+                                                                  <path d="M4 7H20" stroke="white" stroke-width="2" stroke-linecap="round"
+                                                                    stroke-linejoin="round" />
+                                                                  <path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" stroke="white"
+                                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                  <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="white"
+                                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                </svg> Delete</a></li>
+                                                            <li><a href="#" class="dropdown-item"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                  height="16" viewBox="0 2 24 24" fill="none">
+                                                                  <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                                                                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                                                                  <g id="SVGRepo_iconCarrier">
+                                                                    <path
+                                                                      d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z"
+                                                                      stroke="white" stroke-width="1.7759999999999998" stroke-linecap="round"
+                                                                      stroke-linejoin="round" />
+                                                                    <path
+                                                                      d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13"
+                                                                      stroke="white" stroke-width="1.7759999999999998" stroke-linecap="round"
+                                                                      stroke-linejoin="round" />
+                                                                  </g>
+                                                                </svg>&nbsp;Edit</a></li>
+                                                          </ul>
+                                                        </div>
+                                                      </a>
+                                                      {% endif %}
+                                                </div>
+                                                <small>{{ reply.reply.comment_text }}</small>   
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between w-100">
+                                            <div class="d-flex justify-content-between">
+                                                {% if reply.loved %}
+                                                <a href="#" class="love-button ms-3" style="text-decoration: none;" data-comment-id="{{ reply.reply.comment_id }}" data-loved="true">
+                                                    <svg id="love-svg-{{ reply.reply.comment_id }}" fill="#FF0000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="15" height="15" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                                        <path d="M48,5c-4.418,0-8.418,1.791-11.313,4.687l-3.979,3.961c-0.391,0.391-1.023,0.391-1.414,0  c0,0-3.971-3.97-3.979-3.961C24.418,6.791,20.418,5,16,5C7.163,5,0,12.163,0,21c0,3.338,1.024,6.436,2.773,9  c0,0,0.734,1.164,1.602,2.031s24.797,24.797,24.797,24.797C29.953,57.609,30.977,58,32,58s2.047-0.391,2.828-1.172  c0,0,23.93-23.93,24.797-24.797S61.227,30,61.227,30C62.976,27.436,64,24.338,64,21C64,12.163,56.837,5,48,5z M57,22  c-0.553,0-1-0.447-1-1c0-4.418-3.582-8-8-8c-0.553,0-1-0.447-1-1s0.447-1,1-1c5.522,0,10,4.478,10,10C58,21.553,57.553,22,57,22z"></path>
+                                                    </svg>
+                                                </a>
+                                                {% else %}
+                                                <a href="#" class="love-button ms-3" style="text-decoration: none;" data-comment-id="{{ reply.reply.comment_id }}" data-loved="false">
+                                                    <svg id="love-svg-{{ reply.reply.comment_id }}" fill="white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="15" height="15" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                                      <path d="M48,5c-4.418,0-8.418,1.791-11.313,4.687l-3.979,3.961c-0.391,0.391-1.023,0.391-1.414,0  c0,0-3.971-3.97-3.979-3.961C24.418,6.791,20.418,5,16,5C7.163,5,0,12.163,0,21c0,3.338,1.024,6.436,2.773,9  c0,0,0.734,1.164,1.602,2.031s24.797,24.797,24.797,24.797C29.953,57.609,30.977,58,32,58s2.047-0.391,2.828-1.172  c0,0,23.93-23.93,24.797-24.797S61.227,30,61.227,30C62.976,27.436,64,24.338,64,21C64,12.163,56.837,5,48,5z M57,22  c-0.553,0-1-0.447-1-1c0-4.418-3.582-8-8-8c-0.553,0-1-0.447-1-1s0.447-1,1-1c5.522,0,10,4.478,10,10C58,21.553,57.553,22,57,22z"></path>
+                                                    </svg>
+                                                </a>
+                                                    {% endif %}
+                                                <p class="ms-2" style="font-size: 12px; margin-top: 5px;" id="loves-count-{{reply.reply.comment_id}}">{{reply.loves_count}}</p>
+                                                </div>
+                                                <p id="loves-count-{{comment.comment_id}}" style="margin-right: 40px; margin-top: 4px; font-size: 12px;">{{c_likes}}</p>
+                                            <a href="/comment_replies/{{reply.reply.comment_id}}" class="me-2"
+                                                style="text-decoration: none; font-size: 14px; margin-top: 2px; color: rgb(197, 197, 197);">
+                                                {% if reply.reply.replies.count > 0 %}
+                                                <span style="color: antiquewhite;">Replies</span>
+                                                {% else %}
+                                                Reply
+                                                {% endif %}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endfor %}
+                    </div>
+                    <div class="comment-section-bottom bg-dark" style="margin-bottom: -25px;">
+                        <div class="mt-2">
+                            <form method="POST" id="post-form" action="{% url 'create_comment' %}">
+                                {% csrf_token %}
+                                <div class="d-flex flex-start w-100">
+                                    <div class="parent-image">
+                                        <img class="rounded-circle w-100 me-3" src="{{profile.Profile_image.url}}"
+                                            alt="avatar" />
+                                    </div>
+
+                                    <div class="input-group" style="padding-right: 6px; padding-left: 8px;">
+                                        <input required name="comment_text" id="comment_text" type="text"
+                                            class="form-control" placeholder="Type a comment"
+                                            aria-label="Type a public comment" aria-describedby="btnGroupAddon">
+                                        <input type="hidden" value="{{comment.post.sno}}" name="post_id" id="post-id">
+                                        <input type="hidden" value="{{ comment.comment_id }}" name="parent_comment_id"
+                                            id="parent_comment_id">
+                                        <button class="input-group-text btn fw-bold text-black" id="btnGroupAddon"
+                                            style="background-color: #ebac00;">Submit</button>
+                                    </div>
+                                </div>
+
+                        </div>
+                        </form>
+                        <div class="card card-body bg-dark comment-section-bottom" style="border: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+
+<br>
+<br>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.love-button').forEach(function (btn) {
+        btn.addEventListener('click', function (event) {
+            event.preventDefault();
+            var postId_1 = this.dataset.commentId;
+            var loved = (this.dataset.loved === 'true');
+            var svg_1 = document.querySelector('#love-svg-' + postId_1);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/commentReacts/' + postId_1 + '/');
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.setRequestHeader('X-CSRFToken', '{{ csrf_token }}');
+            xhr.responseType = 'json';
+
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    var response = xhr.response;
+                    var likes_count = response.likes_count;
+
+                    var likesCountElement = document.querySelector('#loves-count-' + postId_1);
+                    if (likesCountElement) {
+                        likesCountElement.textContent = likes_count;
+                    } else {
+                        console.error('Likes count element not found');
+                    }
+
+                    if (response.loved) {
+                        svg_1.setAttribute('fill', '#ff0000');
+                        btn.dataset.loved = 'true';
+                    } else {
+                        svg_1.setAttribute('fill', 'white');
+                        btn.dataset.loved = 'false';
+                    }
+                } else {
+                    console.error('Error:', xhr.statusText);
+                }
+            };
+
+            xhr.onerror = function () {
+                console.error('Request failed');
+            };
+
+            xhr.send('loved=' + !loved);
+        });
+    });
+});
+
+
+
+    // The comment bar alignment 
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const commentSection = document.querySelector('.comment-section-bottom');
+        const separator = document.getElementById('separator'); // Get the <hr> element
+        const cardContainer = document.querySelector('.card-container'); // Example: Replace with your card container class
+
+        function setFixedBottom() {
+            const separatorRect = separator ? separator.getBoundingClientRect() : { width: 0 }; // Get bounding client rect of <hr> element
+            const separatorWidth = separatorRect.width; // Get width from bounding client rect
+            const cardContainerWidth = cardContainer ? cardContainer.clientWidth : window.innerWidth; // Example: Replace with your card container width
+
+            commentSection.style.position = 'fixed';
+            commentSection.style.bottom = '0';
+            commentSection.style.left = '50%'; // Align to center horizontally
+            commentSection.style.transform = 'translateX(-50%)'; // Center horizontally
+            commentSection.style.width = separatorWidth + 'px'; // Set width equal to separator's exact width
+            commentSection.style.zIndex = '1030';
+            commentSection.style.padding = '10px'; // Optional padding
+        }
+
+        // Set the styles initially
+        setFixedBottom();
+
+        window.addEventListener('resize', setFixedBottom);
+    });
+
+
+    // Delete Comment 
+
+
+    $(document).ready(function () {
+        $(document).on('click', '.delete-comment', function (e) {
+            e.preventDefault();
+
+            // Retrieve data-comment-id from the clicked anchor tag
+            var commentId = $(this).attr('data-comment-id');
+            console.log(commentId);
+
+            $.ajax({
+                type: 'POST',
+                url: '/delete_comment/' + commentId + '/',
+                data: {
+                    csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+                success: function (response) {
+                    // Optionally, remove the deleted comment from the DOM
+                    $('#comment-' + commentId).remove();
+                },
+                error: function (xhr, status, error) {
+                    console.error("Error deleting comment:", error);
+                    alert("Error deleting comment. Please try again.");
+                }
+            });
+        });
+    });
+
+
+    // Create Comment
+
+    $(document).on('submit', "#post-form", function (e) {
+    e.preventDefault();
+
+    var $postBox = $(this).closest('.post-box');
+    var form = $('#post-box');
+
+    $.ajax({
+        type: 'POST',
+        url: $(this).attr('action'),
+        data: $(this).serialize(),
+        success: function (data) {
+            // Clear the input field
+            $postBox.find('#comment_text').val('');
+            console.log(data)
+
+            // Create new comment HTML
+            var newCommentHtml = `
+
+
+<div id="comment-${data.comment_id}" class="comment-section ms-4" id="display-data">
+                            <div class="mt-2">
+                                <div class="d-flex flex-start w-100">
+                                    <div class=" parent-image-4 me-1">
+                                        <img class="rounded-circle" src="${data.commenter_image}"
+                                            alt="avatar" width="36" height="36" />  
+                                    </div>
+                                    <div class="">
+                                        <div class="col-12">
+                                            <div class="form-control comment-card " style="background-color: #2a2f33;">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <span>
+                                                        <a href="/user_profile/{{reply.reply.commenter.uid}}" class="text-light" style="text-decoration: none; font-weight: bold;">
+                                                            ${data.commenter_name}
+                                                            {% if reply.reply.commenter.verified %}
+                                                            <span>
+                                                                <svg style="margin-top: -2px;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 26" fill="none">
+                                                                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                                                    <g id="SVGRepo_iconCarrier">
+                                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.5924 3.20027C9.34888 3.4078 9.22711 3.51158 9.09706 3.59874C8.79896 3.79854 8.46417 3.93721 8.1121 4.00672C7.95851 4.03705 7.79903 4.04977 7.48008 4.07522C6.6787 4.13918 6.278 4.17115 5.94371 4.28923C5.17051 4.56233 4.56233 5.17051 4.28923 5.94371C4.17115 6.278 4.13918 6.6787 4.07522 7.48008C4.04977 7.79903 4.03705 7.95851 4.00672 8.1121C3.93721 8.46417 3.79854 8.79896 3.59874 9.09706C3.51158 9.22711 3.40781 9.34887 3.20027 9.5924C2.67883 10.2043 2.4181 10.5102 2.26522 10.8301C1.91159 11.57 1.91159 12.43 2.26522 13.1699C2.41811 13.4898 2.67883 13.7957 3.20027 14.4076C3.40778 14.6511 3.51158 14.7729 3.59874 14.9029C3.79854 15.201 3.93721 15.5358 4.00672 15.8879C4.03705 16.0415 4.04977 16.201 4.07522 16.5199C4.13918 17.3213 4.17115 17.722 4.28923 18.0563C4.56233 18.8295 5.17051 19.4377 5.94371 19.7108C6.278 19.8288 6.6787 19.8608 7.48008 19.9248C7.79903 19.9502 7.95851 19.963 8.1121 19.9933C8.46417 20.0628 8.79896 20.2015 9.09706 20.4013C9.22711 20.4884 9.34887 20.5922 9.5924 20.7997C10.2043 21.3212 10.5102 21.5819 10.8301 21.7348C11.57 22.0884 12.43 22.0884 13.1699 21.7348C13.4898 21.5819 13.7957 21.3212 14.4076 20.7997C14.6511 20.5922 14.7729 20.4884 14.9029 20.4013C15.201 20.2015 15.5358 20.0628 15.8879 19.9933C16.0415 19.963 16.201 19.9502 16.5199 19.9248C17.3213 19.8608 17.722 19.8288 18.0563 19.7108C18.8295 19.4377 19.4377 18.8295 19.7108 18.0563C19.8288 17.722 19.8608 17.3213 19.9248 16.5199C19.9502 16.201 19.963 16.0415 19.9933 15.8879C20.0628 15.5358 20.2015 15.201 20.4013 14.9029C20.4884 14.7729 20.5922 14.6511 20.7997 14.4076C21.3212 13.7957 21.5819 13.4898 21.7348 13.1699C22.0884 12.43 22.0884 11.57 21.7348 10.8301C21.5819 10.5102 21.3212 10.2043 20.7997 9.5924C20.5922 9.34887 20.4884 9.22711 20.4013 9.09706C20.2015 8.79896 20.0628 8.46417 19.9933 8.1121C19.963 7.95851 19.9502 7.79903 19.9248 7.48008C19.8608 6.6787 19.8288 6.278 19.7108 5.94371C19.4377 5.17051 18.8295 4.56233 18.0563 4.28923C17.722 4.17115 17.3213 4.13918 16.5199 4.07522C16.201 4.04977 16.0415 4.03705 15.8879 4.00672C15.5358 3.93721 15.201 3.79854 14.9029 3.59874C14.7729 3.51158 14.6511 3.40781 14.4076 3.20027C13.7957 2.67883 13.4898 2.41811 13.1699 2.26522C12.43 1.91159 11.57 1.91159 10.8301 2.26522C10.5102 2.4181 10.2043 2.67883 9.5924 3.20027ZM16.3735 9.86314C16.6913 9.5453 16.6913 9.03 16.3735 8.71216C16.0557 8.39433 15.5403 8.39433 15.2225 8.71216L10.3723 13.5624L8.77746 11.9676C8.45963 11.6498 7.94432 11.6498 7.62649 11.9676C7.30866 12.2854 7.30866 12.8007 7.62649 13.1186L9.79678 15.2889C10.1146 15.6067 10.6299 15.6067 10.9478 15.2889L16.3735 9.86314Z" fill="#ebac00"/>
+                                                                    </g>
+                                                                </svg>
+                                                            </span>
+                                                            {% endif %}
+                                                        </a>
+                                                    </span>
+                                                    <a class="ml-auto stop-it">
+                        
+                                                        <div class="btn-group">
+                                                          <a class="" style="border: none;" href="#" role="button" data-bs-toggle="dropdown"
+                                                            aria-expanded="false">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 3 16" fill="white"
+                                                              class="bi bi-three-dots-vertical">
+                                                              <path
+                                                                d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                                                            </svg>
+                                                          </a>
+                                        
+                                                          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                                                            <li><a class="dropdown-item delete-comment"  id="delete-comment-id" data-comment-id="${data.comment_id}"
+                                                                href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                                                  fill="none">
+                                                                  <path d="M10 12V17" stroke="white" stroke-width="2" stroke-linecap="round"
+                                                                    stroke-linejoin="round" />
+                                                                  <path d="M14 12V17" stroke="white" stroke-width="2" stroke-linecap="round"
+                                                                    stroke-linejoin="round" />
+                                                                  <path d="M4 7H20" stroke="white" stroke-width="2" stroke-linecap="round"
+                                                                    stroke-linejoin="round" />
+                                                                  <path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" stroke="white"
+                                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                  <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="white"
+                                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                                </svg> Delete</a></li>
+                                                            <li><a href="#" class="dropdown-item"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                  height="16" viewBox="0 2 24 24" fill="none">
+                                                                  <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                                                                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                                                                  <g id="SVGRepo_iconCarrier">
+                                                                    <path
+                                                                      d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z"
+                                                                      stroke="white" stroke-width="1.7759999999999998" stroke-linecap="round"
+                                                                      stroke-linejoin="round" />
+                                                                    <path
+                                                                      d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13"
+                                                                      stroke="white" stroke-width="1.7759999999999998" stroke-linecap="round"
+                                                                      stroke-linejoin="round" />
+                                                                  </g>
+                                                                </svg>&nbsp;Edit</a></li>
+                                                          </ul>
+                                                        </div>
+                                                      </a>
+                                                </div>
+                                                <small>${data.comment_text}</small>   
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-between w-100">
+                                            <div class="d-flex justify-content-between">
+                                                {% if reply.loved %}
+                                                <a href="#" class="love-button ms-3" style="text-decoration: none;" data-comment-id="${data.comment_id}" data-loved="true">
+                                                    <svg id="love-svg-${data.comment_id}" fill="#FF0000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="15" height="15" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                                        <path d="M48,5c-4.418,0-8.418,1.791-11.313,4.687l-3.979,3.961c-0.391,0.391-1.023,0.391-1.414,0  c0,0-3.971-3.97-3.979-3.961C24.418,6.791,20.418,5,16,5C7.163,5,0,12.163,0,21c0,3.338,1.024,6.436,2.773,9  c0,0,0.734,1.164,1.602,2.031s24.797,24.797,24.797,24.797C29.953,57.609,30.977,58,32,58s2.047-0.391,2.828-1.172  c0,0,23.93-23.93,24.797-24.797S61.227,30,61.227,30C62.976,27.436,64,24.338,64,21C64,12.163,56.837,5,48,5z M57,22  c-0.553,0-1-0.447-1-1c0-4.418-3.582-8-8-8c-0.553,0-1-0.447-1-1s0.447-1,1-1c5.522,0,10,4.478,10,10C58,21.553,57.553,22,57,22z"></path>
+                                                    </svg>
+                                                </a>
+                                                {% else %}
+                                                <a href="#" class="love-button ms-3" style="text-decoration: none;" data-comment-id="${data.comment_id}" data-loved="false">
+                                                    <svg id="love-svg-${data.comment_id}" fill="white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="15" height="15" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                                      <path d="M48,5c-4.418,0-8.418,1.791-11.313,4.687l-3.979,3.961c-0.391,0.391-1.023,0.391-1.414,0  c0,0-3.971-3.97-3.979-3.961C24.418,6.791,20.418,5,16,5C7.163,5,0,12.163,0,21c0,3.338,1.024,6.436,2.773,9  c0,0,0.734,1.164,1.602,2.031s24.797,24.797,24.797,24.797C29.953,57.609,30.977,58,32,58s2.047-0.391,2.828-1.172  c0,0,23.93-23.93,24.797-24.797S61.227,30,61.227,30C62.976,27.436,64,24.338,64,21C64,12.163,56.837,5,48,5z M57,22  c-0.553,0-1-0.447-1-1c0-4.418-3.582-8-8-8c-0.553,0-1-0.447-1-1s0.447-1,1-1c5.522,0,10,4.478,10,10C58,21.553,57.553,22,57,22z"></path>
+                                                    </svg>
+                                                </a>
+                                                    {% endif %}
+                                                <p class="ms-2" style="font-size: 12px; margin-top: 5px;" id="loves-count-{{reply.reply.comment_id}}">{{reply.loves_count}}</p>
+                                                </div>
+                                                <p id="loves-count-${data.comment_id}" style="margin-right: 40px; margin-top: 4px; font-size: 12px;">{{c_likes}}</p>
+                                            <a href="/comment_replies/{{reply.reply.comment_id}}" class="me-2"
+                                                style="text-decoration: none; font-size: 14px; margin-top: 2px; color: rgb(197, 197, 197);">
+                                                {% if reply.reply.replies.count > 0 %}
+                                                <span style="color: antiquewhite;">Replies</span>
+                                                {% else %}
+                                                Reply
+                                                {% endif %}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+            `;
+
+            if (data.parent_comment_id) {
+                // Append as a reply to the parent comment
+                var $parentComment = $(`#comment-${data.parent_comment_id}`);
+                if ($parentComment.length) {
+                    $parentComment.append(newCommentHtml);
+                } else {
+                    console.error(`Parent comment with ID ${data.parent_comment_id} not found.`);
+                }
+            } else {
+                // Append as a new top-level comment
+                $commentSection1.prepend(newCommentHtml);
+            }
+
+            // Optional: Show the comment section if it was hidden
+            $commentSection.show();
+        },
+        error: function (xhr, status, error) {
+            console.error("Error posting comment:", error);
+            alert("Error posting comment. Please try again.");
+        }
+    });
+});
+
+</script>
+<style>
+    .form-control:focus {
+        border-color: #ebac00;
+        box-shadow: inset 0 1px 2px #ebac00, 0 0 5px #ebac00;
+    }
+
+    .parent-image-4 {
+        max-width: 36px;
+        height: auto;
+        max-height: 36px;
+        width: auto;
+    }
+
+    .parent-image-4 img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .comment-card {
+        border: none;
+        box-shadow: none;
+        outline: none;
+        border-radius: 12px;
+    }
+
+    @media (max-width: 500px) {
+        .post-text {
+            font-size: 11px;
+        }
+    }
+
+    .preserve-whitespace {
+        white-space: pre-wrap;
+        /* Preserve whitespace and wrap text */
+        font-family: monospace;
+        /* Optional: Use a monospaced font for better alignment */
+    }
+
+    .parent-image-2 {
+        height: 60px;
+        width: 60px;
+    }
+
+    .parent-image-2 img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    @media (max-width: 500px) {
+        .parent-image-2 {
+            height: 45px;
+            width: 45px;
+        }
+
+        .parent-image-2 img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .big-text {
+            font-size: 13px;
+        }
+
+        .small-text {
+            font-size: 10px;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .post-text {
+            font-size: 11px;
+        }
+
+        .parent-image-3 {
+            border-radius: 12px;
+            max-height: 300px;
+            width: 100%;
+        }
+
+        .parent-image-3 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .parent-image-5 {
+            width: 100%;
+            max-height: 300px;
+            overflow: hidden;
+            border-radius: 7px;
+        }
+
+        .parent-image-5 img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+
+    @media (min-width: 501px) {
+        .parent-image-3 {
+            border-radius: 12px;
+            height: 500px;
+            max-height: 1000px;
+            width: 100%;
+        }
+
+        .parent-image-3 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .parent-image-5 {
+            width: 100%;
+            max-height: 600px;
+            overflow: hidden;
+            border-radius: 7px;
+        }
+
+        .parent-image-5 img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+
+    .parent-image {
+        height: auto;
+        max-width: 40px;
+        max-height: 40px;
+        width: auto;
+        overflow: hidden;
+    }
+
+    .parent-image img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+</style>
+
+{% endblock %}

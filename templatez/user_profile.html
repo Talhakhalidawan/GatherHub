@@ -1,0 +1,801 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>UserProfile</title>
+{% endblock %}
+{% block favicon %}
+<link rel="icon" type="image/png" sizes="16x16" href="https://i.postimg.cc/PJmtfZ79/LOGO-modified.png' border='0' alt='LOGO-modified">
+{% endblock  %}
+
+{% block body %}
+
+
+<section class="post-box">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-12 col-lg-10 col-xl-8">
+        <div class="card-container  full-screen-post" style="border: none;">
+          <div class="card-body" id="separator">
+
+            <div class="a-div-img">
+              <img class="img-fluid" src="{{profile.cover_image.url}}" alt="">
+            </div>
+
+            <div class="d-flex justify-content-center align-items-center" style="margin-top: -90px;">
+              <div class="b-div-img">
+                <img class="rounded-circle img-fluid" src="{{profile.Profile_image.url}}" alt="">
+              </div>
+            </div>
+
+            <div class="text-center">
+              <p class="h2 my-2">{{profile.user.first_name}}&nbsp;{{profile.user.last_name}}
+                {% if profile.verified %}
+                <span><svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 30" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M9.5924 3.20027C9.34888 3.4078 9.22711 3.51158 9.09706 3.59874C8.79896 3.79854 8.46417 3.93721 8.1121 4.00672C7.95851 4.03705 7.79903 4.04977 7.48008 4.07522C6.6787 4.13918 6.278 4.17115 5.94371 4.28923C5.17051 4.56233 4.56233 5.17051 4.28923 5.94371C4.17115 6.278 4.13918 6.6787 4.07522 7.48008C4.04977 7.79903 4.03705 7.95851 4.00672 8.1121C3.93721 8.46417 3.79854 8.79896 3.59874 9.09706C3.51158 9.22711 3.40781 9.34887 3.20027 9.5924C2.67883 10.2043 2.4181 10.5102 2.26522 10.8301C1.91159 11.57 1.91159 12.43 2.26522 13.1699C2.41811 13.4898 2.67883 13.7957 3.20027 14.4076C3.40778 14.6511 3.51158 14.7729 3.59874 14.9029C3.79854 15.201 3.93721 15.5358 4.00672 15.8879C4.03705 16.0415 4.04977 16.201 4.07522 16.5199C4.13918 17.3213 4.17115 17.722 4.28923 18.0563C4.56233 18.8295 5.17051 19.4377 5.94371 19.7108C6.278 19.8288 6.6787 19.8608 7.48008 19.9248C7.79903 19.9502 7.95851 19.963 8.1121 19.9933C8.46417 20.0628 8.79896 20.2015 9.09706 20.4013C9.22711 20.4884 9.34887 20.5922 9.5924 20.7997C10.2043 21.3212 10.5102 21.5819 10.8301 21.7348C11.57 22.0884 12.43 22.0884 13.1699 21.7348C13.4898 21.5819 13.7957 21.3212 14.4076 20.7997C14.6511 20.5922 14.7729 20.4884 14.9029 20.4013C15.201 20.2015 15.5358 20.0628 15.8879 19.9933C16.0415 19.963 16.201 19.9502 16.5199 19.9248C17.3213 19.8608 17.722 19.8288 18.0563 19.7108C18.8295 19.4377 19.4377 18.8295 19.7108 18.0563C19.8288 17.722 19.8608 17.3213 19.9248 16.5199C19.9502 16.201 19.963 16.0415 19.9933 15.8879C20.0628 15.5358 20.2015 15.201 20.4013 14.9029C20.4884 14.7729 20.5922 14.6511 20.7997 14.4076C21.3212 13.7957 21.5819 13.4898 21.7348 13.1699C22.0884 12.43 22.0884 11.57 21.7348 10.8301C21.5819 10.5102 21.3212 10.2043 20.7997 9.5924C20.5922 9.34887 20.4884 9.22711 20.4013 9.09706C20.2015 8.79896 20.0628 8.46417 19.9933 8.1121C19.963 7.95851 19.9502 7.79903 19.9248 7.48008C19.8608 6.6787 19.8288 6.278 19.7108 5.94371C19.4377 5.17051 18.8295 4.56233 18.0563 4.28923C17.722 4.17115 17.3213 4.13918 16.5199 4.07522C16.201 4.04977 16.0415 4.03705 15.8879 4.00672C15.5358 3.93721 15.201 3.79854 14.9029 3.59874C14.7729 3.51158 14.6511 3.40781 14.4076 3.20027C13.7957 2.67883 13.4898 2.41811 13.1699 2.26522C12.43 1.91159 11.57 1.91159 10.8301 2.26522C10.5102 2.4181 10.2043 2.67883 9.5924 3.20027ZM16.3735 9.86314C16.6913 9.5453 16.6913 9.03 16.3735 8.71216C16.0557 8.39433 15.5403 8.39433 15.2225 8.71216L10.3723 13.5624L8.77746 11.9676C8.45963 11.6498 7.94432 11.6498 7.62649 11.9676C7.30866 12.2854 7.30866 12.8007 7.62649 13.1186L9.79678 15.2889C10.1146 15.6067 10.6299 15.6067 10.9478 15.2889L16.3735 9.86314Z" fill="#ebac00"/> </g></svg></span>
+                {% endif %}
+              </p>
+              <a class="no-dec my-1 6" style="color: #c5c5c5; text-decoration: none;"><span class="text-light"
+                  style="font-weight: 500;"><a class="text-light " style="text-decoration: none;font-weight: 500;"
+                    href="/followers">{{ followers_count }}</a></span> Followers &nbsp;<span class="text-light"
+                  style="font-weight: 500;"><a class="text-light " style="text-decoration: none;font-weight: 500;"
+                    href="/following">{{following_count}}</a></span> Following</a>
+
+              <div class="my-2 text-center d-flex justify-content-center mx-auto" style="max-width: 600px;">
+                <p class="">{{profile.bio}}</p>
+              </div>
+            </div>
+
+            <div class="text-center">
+              {% if people.is_followed_by_user %}
+              <a class="btn text-black follow-action-btn-3" data-uid="{{ profile.uid }}" data-action="unfollow" href="#" style="background-color: #ebac00;">
+                <span style="font-weight:500;">Unfollow</span>
+              </a>
+              {% else %}
+              {% if people.is_following_user %}
+              <a class="btn text-black follow-action-btn-3" data-uid="{{ profile.uid }}" data-action="follow" href="#" style="background-color: #ebac00;">
+                <span style="font-weight:500;">Follow Back</span>
+              </a>
+              {% else %}
+              <a class="btn text-black follow-action-btn-3" data-uid="{{ profile.uid }}" data-action="follow" href="#" style="background-color: #ebac00;">
+                <span style="font-weight:500;">Follow</span>
+              </a>
+              {% endif %}
+              {% endif %}
+
+              <a class="disabled btn btn-light mx-1" href="">
+
+                <span style="font-weight:500;">Message</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  
+  //  The Follow button function 
+  $(document).ready(function() {
+    $(document).on('click', '.follow-action-btn-3', function(e) {
+        e.preventDefault();
+        
+        var $btn = $(this);
+        var uid = $btn.data('uid');
+        var action = $btn.data('action');
+        var url = action === 'follow' ? '/follow/' + uid + '/' : '/unfollow/' + uid + '/';
+        
+        console.log("Button clicked. UID:", uid, "Action:", action); // Debugging output
+        
+        $.ajax({
+            type: 'POST',
+            url: url,
+            data: {
+                csrfmiddlewaretoken: $('input[name="csrfmiddlewaretoken"]').val(),
+            },
+            success: function(data) {
+                console.log("Success. Data:", data); // Debugging output
+                if (action === 'follow') {
+                    $btn.text('Unfollow').data('action', 'unfollow');
+                } else {
+                    $btn.text('Follow').data('action', 'follow');
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error("Error performing follow/unfollow action:", error);
+                alert("Error performing action. Please try again.");
+            }
+        });
+    });
+});
+
+
+  </script>
+  
+
+    
+  <hr class="my-2"
+  style="height: 2px; border: none; color:#ffffff; background-color:#ffffff;width: 730px; margin: 0 auto; max-width: 100%;">
+  
+<section class="post-box comment-toggle">
+  <div class="container post-content">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-12 col-lg-10 col-xl-8">
+        <div class="card-container full-screen-post" style="border: none;">
+          <div class="card-body" id="separator">
+            
+            <div class="my-1">
+              <p><span class="font-500"> &nbsp;&nbsp; Education : </span>{{profile.education}}</p>
+              <p><span class="font-500"> &nbsp;&nbsp; Phone Number : </span>{{profile.phone_number}}</p>
+            </div>
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+
+{% if followers %}
+<hr class="my-"
+  style="height: 2px; border: none; color:#ffffff; background-color:#ffffff;width: 730px; margin: 0 auto; max-width: 100%;">
+
+<div class="container post-content my-2" style="margin-bottom: -10px !important;">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-8">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 layout-spacing">
+            <div class="statbox widget box box-shadow">
+              <div class="widget-content widget-content-area">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="">
+                      <div class="d-flex justify-content-between mx-2">
+                        <p class="h4 text-start">Followers</p>
+                        <a class="no-dec" href="/followers" style="font-size: 16px; color: #008cff;">All Followers</a>
+                      </div>
+                    </div>
+                    <div id="content_1" class="tabcontent story-area">
+                      <div class="story-container-1">
+
+                        <!-- Repeat this block for each story -->
+
+                        {% for follow in followers %}
+                        <div>
+                          <a class="single-story" style="text-decoration: none;">
+                            <img height="170" width="110" src="{{follow.follower.Profile_image.url}}"
+                              class="single-story-bg" alt="Story">
+                          </a>
+                          <div>
+                            <p class="h6 mt-2">
+                              {{follow.follower.user.first_name}}&nbsp;{{follow.follower.user.last_name}}</p>
+                          </div>
+                        </div>
+                        {% endfor %}
+
+                        <!-- Add more stories as needed -->
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+<hr class="my-2"
+  style="height: 2px; border: none; color:#ffffff; background-color:#ffffff;width: 730px; margin: 0 auto; max-width: 100%;">
+<style>
+  @media (max-width: 500px) {
+    .post-text {
+      font-size: 11px;
+    }
+  }
+
+  .preserve-whitespace {
+    white-space: pre-wrap;
+    /* Preserve whitespace and wrap text */
+    font-family: monospace;
+    /* Optional: Use a monospaced font for better alignment */
+  }
+
+  .parent-image-2 {
+    height: 60px;
+    width: 60px;
+  }
+
+  .parent-image-2 img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 500px) {
+    .parent-image-2 {
+      height: 45px;
+      width: 45px;
+    }
+
+    .parent-image-2 img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .big-text {
+      font-size: 13px;
+    }
+
+    .small-text {
+      font-size: 10px;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .post-text {
+      font-size: 11px;
+    }
+  }
+
+  @font-face {
+    font-family: 'CustomFont';
+    src: url('media/font/Jameel Noori Nastaleeq Regular.ttf') format('truetype');
+  }
+
+  .text-brand {
+    font-family: 'CustomFont', sans-serif;
+  }
+</style>
+
+
+
+
+{% for post in post %}
+<section class="post-box comment-toggle">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-12 col-lg-10 col-xl-8">
+        <div class="card" style="border: none;">
+          <div class="card-body">
+        
+            <div class="d-flex flex-start align-items-center my-1">
+              <a class="stop-it" href="/user_profile/{{post.post.user.uid}}" style="text-decoration: none;">
+                <div class="parent-image-2 me-2">
+                  <img class="rounded-circle shadow-1-strong" src="{{post.post.user.Profile_image.url}}" alt="avatar"
+                    width="60" height="60" />
+                </div>
+              </a>
+              <div class="flex-grow-1">
+                <a class="stop-it" href="/user_profile/{{post.post.user.uid}}" style="text-decoration: none;">
+                  <h6 class="fw-bold text-light mb-1">
+                    {{post.post.user.user.first_name}}&nbsp;{{post.post.user.user.last_name}}
+                  </h6>
+                </a>
+                <p class="text-muted small mb-0">
+                  {% load my_filters %}
+                  {{ post.post.created_at|facebook_timestamp }}
+                </p>
+              </div>
+
+              {% if post.post.user.user == request.user %}
+              <a class="ml-auto stop-it">
+
+                <div class="btn-group">
+                  <a class="btn" style="border: none;" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="white"
+                      class="bi bi-three-dots-vertical">
+                      <path
+                        d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                    </svg>
+                  </a>
+
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                    <li><a class="dropdown-item delete-post" id="delete-post" data-sno="{{ post.post.sno }}"
+                        href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                          fill="none">
+                          <path d="M10 12V17" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                          <path d="M14 12V17" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                          <path d="M4 7H20" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                          <path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" stroke="white"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="white"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg> Delete</a></li>
+                    <li><a href="#" class="dropdown-item"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                          height="16" viewBox="0 2 24 24" fill="none">
+                          <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                          <g id="SVGRepo_iconCarrier">
+                            <path
+                              d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z"
+                              stroke="white" stroke-width="1.7759999999999998" stroke-linecap="round"
+                              stroke-linejoin="round" />
+                            <path
+                              d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13"
+                              stroke="white" stroke-width="1.7759999999999998" stroke-linecap="round"
+                              stroke-linejoin="round" />
+                          </g>
+                        </svg>&nbsp;Edit</a></li>
+                  </ul>
+                </div>
+              </a>
+
+              {% endif %}
+
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+              <script>
+                $(document).ready(function () {
+                  var postId;
+                  var postElement;
+
+                  // Show the modal when delete button is clicked
+                  $(document).on('click', '.delete-post', function (e) {
+                    e.preventDefault();
+                    postId = $(this).data('sno');
+                    postElement = $(this).closest('section.post-box'); // Get the closest post element
+                    $('#deleteModal').modal('show');
+                  });
+
+                  // Handle the confirmation of deletion
+                  $('#confirmDelete').click(function () {
+                    $.ajax({
+                      type: 'POST',
+                      url: '/delete_post/' + postId + '/',
+                      data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                      },
+                      success: function () {
+                        $('#deleteModal').modal('hide');
+                        postElement.remove(); // Remove the post element from the DOM
+                      },
+                      error: function (xhr, status, error) {
+                        console.error("Error:", xhr.responseJSON.error || 'An error occurred.');
+                        $('#deleteModal').modal('hide');
+                      }
+                    });
+                  });
+                });
+
+              </script>
+              <div class="modal stop-it" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Are you sure you want to delete this post?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <input type="hidden" id="post-id" value="{{post.post.sno}}">
+          <input type="hidden" id="poster-user-id" value="{{post.post.user.uid}}">
+
+          <!-- No Image -->
+
+          <style>
+            @media (max-width: 500px) {
+              .post-text {
+                font-size: 11px;
+              }
+            }  .modal-header, .modal-footer {
+    border: none;
+  }
+          </style>
+
+          {% if post.post.post_title %}
+          <p class="preserve-whitespace post-text text-center text-brand">{{ post.post.post_title }}</p>
+          {% endif %}
+
+          {% if post.post.post_image.count > 0 %}
+
+          {% if post.post.post_image.count == 1 %}
+          <div class=" mb-2 parent-image-5">
+            <img class="rounded w-100" src="{{ post.post.post_image.first.image.url }}" alt="Post Image">
+          </div>
+          {% else %}
+          <div id="carouselExampleIndicators-{{ post.post.sno }}" class="carousel slide py-2 mb-2"
+            data-bs-ride="carousel">
+            <div class="carousel-inner">
+              {% for image in post.post.post_image.all %}
+              <div class="carousel-item parent-image-3 {% if forloop.first %}active{% endif %}">
+                <img class="d-block w-100 rounded" src="{{ image.image.url }}" alt="Slide Image">
+              </div>
+              {% endfor %}
+            </div>
+
+            <style>
+              @media (max-width: 500px) {
+                .post-text {
+                  font-size: 11px;
+                }
+
+                .parent-image-3 {
+                  border-radius: 12px;
+                  height: 200px;
+                  max-height: 300px;
+                  width: 100%;
+                }
+
+                .parent-image-3 img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+
+                .parent-image-5 {
+                  width: 100%;
+                  max-height: 300px;
+                  overflow: hidden;
+                  border-radius: 7px;
+                }
+
+                .parent-image-5 img {
+                  width: 100%;
+                  height: auto;
+                  object-fit: cover;
+                }
+              }
+
+              @media (min-width: 501px) {
+                .parent-image-3 {
+                  border-radius: 12px;
+                  height: 500px;
+                  max-height: 1000px;
+                  width: 100%;
+                }
+
+                .parent-image-3 img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+
+                .parent-image-5 {
+                  width: 100%;
+                  max-height: 500px;
+                  overflow: hidden;
+                  border-radius: 7px;
+                }
+
+                .parent-image-5 img {
+                  width: 100%;
+                  height: auto;
+                  object-fit: cover;
+                }
+              }
+            </style>
+
+            {% if post.post.post_image.count > 1 %}
+            <a class="carousel-control-prev stop-it" href="#carouselExampleIndicators-{{ post.post.sno }}" role="button"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next stop-it" href="#carouselExampleIndicators-{{ post.post.sno }}" role="button"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </a>
+            {% endif %}
+          </div>
+          {% endif %}
+          {% endif %}
+
+
+
+          <div class="d-flex justify-content-around align-items-center stop-it">
+
+            <div class="card m-1 d-flex" style="border: none; background-color: #2a2f33; border-radius: 12px; width: 100px;">
+              <div class="mx-4 my-2 mb-2 buttn-txt buttn text-center d-flex align-items-center justify-content-between">
+                <span class="me-2" style="color: #fff;" id="R-likes-count-{{ post.post.sno }}">{{ post.R_likes }}</span>
+                
+                {% if post.liked %}
+                <a href="#" class="like-btn" style="background-color: #2a2f33; text-decoration: none; color: white; font-weight: 500;" data-post-id="{{ post.post.sno }}" data-liked="true">
+                  <svg id="like-svg-{{ post.post.sno }}" fill="#FF0000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="25" height="25" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                    <path d="M48,5c-4.418,0-8.418,1.791-11.313,4.687l-3.979,3.961c-0.391,0.391-1.023,0.391-1.414,0  c0,0-3.971-3.97-3.979-3.961C24.418,6.791,20.418,5,16,5C7.163,5,0,12.163,0,21c0,3.338,1.024,6.436,2.773,9  c0,0,0.734,1.164,1.602,2.031s24.797,24.797,24.797,24.797C29.953,57.609,30.977,58,32,58s2.047-0.391,2.828-1.172  c0,0,23.93-23.93,24.797-24.797S61.227,30,61.227,30C62.976,27.436,64,24.338,64,21C64,12.163,56.837,5,48,5z M57,22  c-0.553,0-1-0.447-1-1c0-4.418-3.582-8-8-8c-0.553,0-1-0.447-1-1s0.447-1,1-1c5.522,0,10,4.478,10,10C58,21.553,57.553,22,57,22z" />
+                  </svg>
+                </a>
+                {% else %}
+                <a href="#" class="like-btn" style="background-color: #2a2f33; text-decoration: none; color: white; font-weight: 500;" data-post-id="{{ post.post.sno }}" data-liked="false">
+                  <svg id="like-svg-{{ post.post.sno }}" fill="white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="25" height="25" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                    <path d="M48,5c-4.418,0-8.418,1.791-11.313,4.687l-3.979,3.961c-0.391,0.391-1.023,0.391-1.414,0  c0,0-3.971-3.97-3.979-3.961C24.418,6.791,20.418,5,16,5C7.163,5,0,12.163,0,21c0,3.338,1.024,6.436,2.773,9  c0,0,0.734,1.164,1.602,2.031s24.797,24.797,24.797,24.797C29.953,57.609,30.977,58,32,58s2.047-0.391,2.828-1.172  c0,0,23.93-23.93,24.797-24.797S61.227,30,61.227,30C62.976,27.436,64,24.338,64,21C64,12.163,56.837,5,48,5z M57,22  c-0.553,0-1-0.447-1-1c0-4.418-3.582-8-8-8c-0.553,0-1-0.447-1-1s0.447-1,1-1c5.522,0,10,4.478,10,10C58,21.553,57.553,22,57,22z" />
+                  </svg>
+                </a>
+                {% endif %}
+                
+              </div>
+            </div>
+
+
+            <div class="card m-1 d-flex my-2"
+              style="border: none; background-color: #2a2f33; border-radius: 12px; width: 100px;">
+              <div class="mx-4 my-2 mb-2 buttn-txt buttn text-center">
+
+                <a href="/post-details/{{post.post.sno}}" class="">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0"
+                    id="Layer_1" width="22" height="22" viewBox="0 0 64 64" xml:space="preserve">
+                    <path fill="white"
+                      d="M60,0H4C1.789,0,0,1.789,0,4v40c0,2.211,1.789,4,4,4h8v15c0,0.404,0.243,0.77,0.617,0.924  C12.741,63.976,12.871,64,13,64c0.26,0,0.516-0.102,0.707-0.293L29.414,48H60c2.211,0,4-1.789,4-4V4C64,1.789,62.211,0,60,0z M15,14  h16c0.553,0,1,0.447,1,1s-0.447,1-1,1H15c-0.553,0-1-0.447-1-1S14.447,14,15,14z M45,34H15c-0.553,0-1-0.447-1-1s0.447-1,1-1h30  c0.553,0,1,0.447,1,1S45.553,34,45,34z M14,27c0-0.553,0.447-1,1-1h24c0.553,0,1,0.447,1,1s-0.447,1-1,1H15  C14.447,28,14,27.553,14,27z M49,22H15c-0.553,0-1-0.447-1-1s0.447-1,1-1h34c0.553,0,1,0.447,1,1S49.553,22,49,22z" />
+                  </svg>
+                </a>
+
+              </div>
+            </div>
+
+            <div class="card m-1 d-flex my-2"
+              style="border: none; background-color: #2a2f33; border-radius: 12px; width: 100px;">
+              <div class="mx-4 my-2 mb-2 buttn-txt buttn text-center">
+                <a class="">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="25"
+                    width="25" version="1.1" id="_x32_" viewBox="0 0 512 512" xml:space="preserve">
+                    <style type="text/css">
+                      .st0 {
+                        fill: rgb(173, 173, 173);
+                      }
+                    </style>
+                    <g>
+                      <path class="st0"
+                        d="M512,255.995L277.045,65.394v103.574c-17.255,0-36.408,0-57.542,0c-208.59,0-249.35,153.44-201.394,266.128   c9.586-103.098,142.053-100.701,237.358-100.701c7.247,0,14.446,0,21.578,0v112.211L512,255.995z" />
+                    </g>
+                  </svg>
+                </a>
+
+              </div>
+            </div>
+
+          </div>
+
+          <small class="text-body-secondary "></small></small>
+
+
+          <div class="comment-section stop-it mb-2">
+            <div class="bg-dark mt-2">
+              <form method="POST" id="post-form">
+                {% csrf_token %}
+                <div class="d-flex flex-start w-100 ">
+                  <div class="parent-image me-1">
+                    <img class="rounded-circle me-3" src="{{post.post.user.Profile_image.url}}" alt="avatar" width="36"
+                      height="36" />
+                  </div>
+                  <div class="form-outline w-100">
+                    <textarea class="form-control" id="comment_text" rows="1" name="comment_text"
+                      placeholder="Write a comment..."></textarea>
+                  </div>
+                </div>
+                <div class="float-end mt-2 pt-1">
+                  <button type="submit" class="btn btn-sm text-black fw-bold"
+                    style="background-color: #ebac00;">Post</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<hr style="width: 750px; margin: 0 auto; max-width: 100%;">
+
+{% endfor %}
+
+
+
+<style>
+  .font-500 {
+    font-weight: 500;
+  }
+
+  .a-div-img {
+    display: inline-block;
+    height: 200px;
+    width: 105%;
+    overflow: hidden;
+    border-radius: 3px;
+    position: relative;
+    margin-left: -10px;
+    margin-top: 2px;
+  }
+
+  .a-div-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .b-div-img {
+    height: 190px;
+    width: 190px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .b-div-img img {
+    height: 190px;
+    width: 190px;
+    object-fit: cover;
+    position: absolute;
+    outline: 4px solid #212529;
+  }
+
+  .no-dec {
+    text-decoration: none;
+  }
+
+  .story-area {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    /* Enable horizontal scrolling */
+    white-space: nowrap;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on iOS */
+  }
+
+  .story-area::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar for WebKit browsers */
+  }
+
+  .story-area {
+    -ms-overflow-style: none;
+    /* Hide scrollbar for Internet Explorer and Edge */
+    scrollbar-width: none;
+    /* Hide scrollbar for Firefox */
+  }
+
+  .story-container-1 {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .single-story {
+    display: inline-block;
+    height: 110px;
+    width: 110px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 10px;
+  }
+
+  .single-story img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .comment-section {
+    display: none;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('click', function (e) {
+      if (e.target && e.target.closest('.comment-toggle')) {
+        e.preventDefault();
+        const commentSection = e.target.closest('.post-box').querySelector('.comment-section');
+        commentSection.style.display = commentSection.style.display === 'none' ? 'block' : 'none';
+      }
+    });
+
+    document.querySelectorAll('.comment-section input, .comment-section textarea, .comment-section button , .stop-it').forEach(function (element) {
+      element.addEventListener('click', function (e) {
+        e.stopPropagation();
+      });
+    });
+  });
+
+
+
+    // Likes function
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.like-btn').forEach(function (btn) {
+    btn.addEventListener('click', function (event) {
+      event.preventDefault();
+      var postId = this.dataset.postId;
+      var liked = (this.dataset.liked === 'true');
+      var svg = document.querySelector('#like-svg-' + postId);
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/likes/' + postId + '/');
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.setRequestHeader('X-CSRFToken', '{{ csrf_token }}');
+      xhr.responseType = 'json';
+
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          var response = xhr.response;
+          var R_likesCount = response.R_likes;
+
+          document.querySelector('#R-likes-count-' + postId).textContent = R_likesCount;
+
+          if (response.liked) {
+            svg.setAttribute('fill', '#FF0000');
+            btn.dataset.liked = 'true';
+          } else {
+            svg.setAttribute('fill', 'white');
+            btn.dataset.liked = 'false';
+          }
+        } else {
+          console.error('Error:', xhr.statusText);
+        }
+      };
+
+      xhr.onerror = function () {
+        console.error('Request failed');
+      };
+
+      xhr.send();
+    });
+  });
+});
+
+
+
+  // Posting the comment 
+
+
+
+  $(document).on('submit', ".post-box form", function (e) {
+    e.preventDefault();
+
+    // Find the closest .post-box relative to the submitted form
+    var $postBox = $(this).closest('.post-box');
+
+    $.ajax({
+      type: 'POST',
+      url: '/create_comment/',
+      data: {
+        comment_text: $postBox.find('#comment_text').val(),
+        post_id: $postBox.find('#post-id').val(),  // Retrieve post_id within the current post-box
+        poster_user_id: $postBox.find('#poster-user-id').val(),  // Retrieve poster_user_id within the current post-box
+        csrfmiddlewaretoken: $postBox.find("input[name=csrfmiddlewaretoken]").val(),  // Find CSRF token within the current post-box
+      },
+      success: function (data) {
+        $postBox.find('#comment_text').val('');
+        // Hide the comment section in the current post-box upon successful comment submission
+        $postBox.find('.comment-section').hide();
+      },
+      error: function (xhr, status, error) {
+        console.error("Error posting comment:", error);  // Log specific error
+        alert("Error posting comment. Please try again.");  // Display error message (replace with your logic)
+      },
+    });
+  });
+
+
+</script>
+
+{% endblock %}

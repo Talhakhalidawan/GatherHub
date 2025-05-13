@@ -1,0 +1,351 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Notifications</title>
+{% endblock %}
+{% block favicon %}
+<link rel="icon" type="image/png" sizes="16x16" href="https://i.postimg.cc/PJmtfZ79/LOGO-modified.png' border='0' alt='LOGO-modified">
+{% endblock  %}
+
+{% block body %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<nav id="navbar" class="navbar navbar-expand-lg navbar-custom bg-dark fixed-top">
+    <div class="container d-flex justify-content-evenly">
+        <a href="/">
+            <svg class="height-res buttn-1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" viewBox="0 0 547.596 547.596"
+                xml:space="preserve">
+                <g>
+                    <path
+                        d="M540.76,254.788L294.506,38.216c-11.475-10.098-30.064-10.098-41.386,0L6.943,254.788   c-11.475,10.098-8.415,18.284,6.885,18.284h75.964v221.773c0,12.087,9.945,22.108,22.108,22.108h92.947V371.067   c0-12.087,9.945-22.108,22.109-22.108h93.865c12.239,0,22.108,9.792,22.108,22.108v145.886h92.947   c12.24,0,22.108-9.945,22.108-22.108v-221.85h75.965C549.021,272.995,552.081,264.886,540.76,254.788z" />
+                </g>
+            </svg>
+        </a>
+        <a href="/all_people">
+            <svg class="buttn-1 height-res" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1" style="enable-background:new 0 0 30 30;"
+                version="1.1" viewBox="0 0 30 30" xml:space="preserve">
+                <path
+                    d="M12.684,19.993C12.382,19.732,12.139,19.417,12,19v-2c0.383-0.189,1.363-1.324,1.734-2.395  c-0.314-0.498-0.56-1.125-0.664-1.94c-0.086-0.677,0.016-1.266,0.223-1.755C13.138,10.371,13,9.696,13,9  c0-1.386,0.287-2.655,0.799-3.757C13.337,4.779,12.743,4.5,12,4.5c0,0-0.374-1.5-2.5-1.5C6.012,3,4,5.721,4,9  c0,1.104,0.528,2.214,0.528,2.214c-0.212,0.122-0.562,0.51-0.474,1.198c0.164,1.283,0.72,1.608,1.074,1.635  C5.263,15.245,6.55,16.777,7,17v2c-1,3-7,1-7,8h9C9,22.824,10.864,20.99,12.684,19.993z" />
+                <g>
+                    <path
+                        d="M23,19v-2c0.45-0.223,1.737-1.755,1.872-2.952c0.354-0.027,0.91-0.352,1.074-1.635c0.088-0.689-0.262-1.076-0.474-1.198   c0,0,0.528-1.003,0.528-2.214c0-2.428-0.953-4.5-3-4.5c0,0-0.374-1.5-2.5-1.5C17.012,3,15,5.721,15,9   c0,1.104,0.528,2.214,0.528,2.214c-0.212,0.122-0.562,0.51-0.474,1.198c0.164,1.283,0.72,1.608,1.074,1.635   C16.263,15.245,17.55,16.777,18,17v2c-1,3-7,1-7,8h19C30,20,24,22,23,19z" />
+                </g>
+            </svg>
+        </a>
+        <a href="/notifications">
+            <svg class="buttn height-res-1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" style="enable-background:new 0 0 24 24;" version="1.1"
+                viewBox="0 0 24 23" xml:space="preserve">
+                <g id="info" />
+                <g id="icons">
+                    <g id="notification">
+                        <path
+                            d="M13.7,20h-3.5c-0.7,0-1.3,0.8-0.9,1.5C9.9,22.4,10.9,23,12,23s2.1-0.6,2.6-1.5C15,20.8,14.5,20,13.7,20z" />
+                        <path
+                            d="M21.8,16.7l-0.4-0.5C19.8,14.1,19,11.6,19,9V8.3c0-3.6-2.6-6.8-6.2-7.2C8.6,0.6,5,3.9,5,8v1c0,2.6-0.8,5.1-2.4,7.2    l-0.4,0.5c-0.2,0.2-0.3,0.6-0.2,0.8C2.3,18.4,3.1,19,4,19h16c0.9,0,1.7-0.6,1.9-1.5C22,17.2,21.9,16.9,21.8,16.7z" />
+                    </g>
+                </g>
+            </svg>
+        </a>
+    </div>
+</nav>
+
+<style>
+    @media (min-width : 751px) {
+        .height-res {
+            width: 45px;
+            height: 45px;
+        }
+    }
+
+    @media (max-width : 750px) {
+        .height-res {
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    @media (min-width : 751px) {
+        .height-res-1 {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    @media (max-width : 750px) {
+        .height-res-1 {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    .buttn {
+        fill: #ebac00;
+    }
+
+    .buttn:hover {
+        fill: #dda200;
+    }
+
+    .buttn-1 {
+        fill: white;
+    }
+
+    .buttn-1:hover {
+        fill: #ebac00;
+    }
+
+    .buttn-2 {
+        stroke: white;
+        stroke-width: 2;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .buttn-2:hover {
+        stroke: #ebac00;
+    }
+</style>
+<br>
+<br>
+<br>
+
+<section class=" my-2">
+    <div class="container post-content">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-lg-10 col-xl-8">
+                <div class="card-container  full-screen-post" style="border: none;">
+                    <div class="card-body" id="separator">
+
+                        {% if notification|length == 0 %}
+
+                        <div class="my-5    ">
+                            <a style="text-decoration: none;">
+                                <div class="card m-1 d-flex my-2"
+                                    style="border: none; background-color: #2a2f33; border-radius: 12px;">
+                                    <div
+                                        class="d-flex justify-content-center fw-bold h5 align-items-center mx-4 my-2 mb-2 buttn-txt buttn">
+                                        You don't have any notifications right now.
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        {% else %}
+
+                        <div class="my-1">
+                            <a class="" href="/mark-all-as-read" style="text-decoration: none;">
+                                <div class="card m-1 d-flex my-2"
+                                    style="border: none; background-color: #2a2f33; border-radius: 12px;">
+                                    <p style="color: #ebac00; text-decoration: none;"
+                                        class="d-flex justify-content-center fw-bold h5 align-items-center mx-4 my-2 mb-2 buttn-txt buttn">
+                                        Clear All Notifications
+                            </p>
+                                </div>
+                            </a>
+                        </div>
+
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+<section class="post-box comment-toggle mb-2">
+    <div class="container post-content">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-lg-10 col-xl-8">
+                <div class="card-container full-screen-post" style="border: none;">
+                    {% for notification in notification %}
+                    <div class="notification-link" data-id="{{ notification.notification_id }}">
+                        <div class="card-body my-2" id="separator">
+
+                            {% if notification.is_read %}
+
+                            <div class="card" style="background-color: #2a2f33 ; border: none; border-radius: 12px;">
+
+                                {% else %}
+
+                                <div class="card" style="background-color: #302f29; border: none; border-radius: 12px;">
+
+                                    {% endif %}
+
+                                    <div class="m-2">
+                                        <div class="d-flex flex-start align-items-center">
+                                            <a href="/user_profile/{{notification.notification_by.uid}}"
+                                            style="text-decoration: none;">
+                                            <div class="parent-image me-2">
+                                                <img class="rounded-circle shadow-1-strong"
+                                                src="{{ notification.notification_by.Profile_image.url }}"
+                                                alt="avatar" width="75" height="75" />
+                                            </div>
+                                            <div class="">
+                                                    <div class="mt-aut0 text-start">
+                                                        {% load my_filters %}
+                                                        <p class="mb-0 text-sm text-body-secondary mb-2" style="font-size: 12px; margin-top: -20px;">{{ notification.created_time|facebook_timestamp}}</p>
+                                                    </div>
+                                                    <span class="text-light text-start">
+                                                        <a href="/user_profile/{{notification.notification_by.uid}}" class="h5 text-light" style="text-decoration: none;">
+                                                            
+                                                            {{notification.notification_by.user.first_name}}&nbsp;{{notification.notification_by.user.last_name}}
+                                                            
+                                                        </a>
+                                                        <span class="truncate-text" style="font-weight: 400;">{{notification.body}}</span>
+
+
+                                                        {% if notification.comment_like %}
+
+                                                            <a  href="/comment_replies/{{notification.comment_like.comment_id}}" style="text-decoration: none;overflow: hidden;"><span class="text-light h5 truncate-text" > "{{ notification.comment_like.comment_text }}"</span></a>
+                                                        
+                                                            {% else %}
+                                                            
+                                                        
+                                                        {% if notification.parent_comment %}
+                                                        
+                                                        <a  href="/comment_replies/{{notification.parent_comment.comment_id}}" style="text-decoration: none;overflow: hidden;"><span class="text-light h5 truncate-text" > "{{ notification.parent_comment.comment_text }}"</span></a>
+                                                        {% else %}
+                                                            {% if notification.post %}
+    
+                                                            <a href="/post-details/{{notification.post.sno}}" style="text-decoration: none;overflow: hidden;"><span class="text-light h5" >post</span>&nbsp;
+                                                                
+                                                                {% if notification.post.post_title %}
+                                                                
+                                                                <span class="truncate-text" style="color:snow;">
+                                                                    
+                                                                     "{{notification.post.post_title}}
+    
+                                                                    </span>
+    
+                                                                {% endif %}
+                                                            </a>
+                                                            {% endif %}
+                                                        </span>
+                                                        {% endif %}
+                                                        {% endif %}
+                                                    </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        // Polling function to update notifications
+        function pollNotifications() {
+            $.ajax({
+                type: 'GET',
+                url: '{% url "poll_notifications" %}',  // URL for polling the notifications
+                success: function (response) {
+                    updateNotifications(response.notifications);
+                },
+                error: function (response) {
+                    console.error('Error:', response);
+                }
+            });
+        }
+
+        // Function to update the notifications in the DOM
+        function updateNotifications(notifications) {
+            notifications.forEach(function (notification) {
+                var notificationCard = $('div[data-id="' + notification.notification_id + '"] .card');
+                if (notification.is_read) {
+                    notificationCard.css('background-color', '#2a2f33');
+                } else {
+                    notificationCard.css('background-color', '#302f29');
+                }
+            });
+        };
+
+        // Set interval to poll notifications every 10 seconds (adjust as needed)
+        setInterval(pollNotifications, 100);
+
+        // Existing click handler for marking notifications as read
+        $('.post-content').on('click', 'a', function (e) {
+            e.preventDefault();
+
+            var notificationItem = $(this).closest('.notification-link');
+            var notificationId = notificationItem.data('id');
+
+            if (notificationId) {
+                var url = '/notification/' + notificationId + '/read/';
+
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                    },
+                    success: function (response) {
+                        if (response.status === 'success') {
+                            notificationItem.closest('.card').css('background-color', '#282b2e');
+                            // Redirect to the intended link after marking as read
+                            window.location.href = $(e.target).closest('a').attr('href');
+                        }
+                    },
+                    error: function (response) {
+                        console.error('Error:', response);
+                    }
+                });
+            } else {
+                // If no notification ID, just follow the link
+                window.location.href = $(this).attr('href');
+            }
+        });
+    });
+
+
+    // Text overflow
+
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+    const truncateTextElements = document.querySelectorAll('.truncate-text');
+
+    truncateTextElements.forEach(element => {
+        let words = element.textContent.split(' ');
+        if (words.length > 20) {
+            element.textContent = words.slice(0, 10).join(' ') + '...';
+        }
+    });
+});
+
+</script>
+
+
+
+<style>
+    .parent-image {
+        height: 75px;
+        width: 75px;
+        overflow: hidden;
+    }
+
+    .parent-image img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+</style>
+
+{% endblock %}

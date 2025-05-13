@@ -1,0 +1,350 @@
+{% extends 'base.html' %}
+{% block title %}
+<title>Messages</title>
+{% endblock %}
+{% block favicon %}
+<link rel="icon" type="image/png" sizes="16x16" href="https://i.postimg.cc/PJmtfZ79/LOGO-modified.png' border='0' alt='LOGO-modified">
+{% endblock  %}
+{% block body %}
+
+<nav class="navbar bg-body-tertiary fixed-top p-1">
+    <div class="container-fluid">
+        <div class="navbar-brand d-flex justify-content-center align-items-center" href="#">
+            <div class="me-1">
+                <span><a href="/chat-list">
+                        <svg style="margin-left: -10px;" xmlns="http://www.w3.org/2000/svg" fill="white" width="23"
+                            height="23" viewBox="0 0 1200 1700">
+                            <path
+                                d="M222.927 580.115l301.354 328.512c24.354 28.708 20.825 71.724-7.883 96.078s-71.724 20.825-96.078-7.883L19.576 559.963a67.846 67.846 0 01-13.784-20.022 68.03 68.03 0 01-5.977-29.488l.001-.063a68.343 68.343 0 017.265-29.134 68.28 68.28 0 011.384-2.6 67.59 67.59 0 0110.102-13.687L429.966 21.113c25.592-27.611 68.721-29.247 96.331-3.656s29.247 68.721 3.656 96.331L224.088 443.784h730.46c37.647 0 68.166 30.519 68.166 68.166s-30.519 68.166-68.166 68.166H222.927z" />
+                        </svg>
+                    </a></span>
+            </div>
+            <div class="parent-image-2">
+                <a href="/user_profile/{{profile.uid}}">
+                    <img src="{{profile.Profile_image.url}}" alt="Logo" width=""
+                        height="" class="d-inline-block align-text-top rounded-circle">
+                </a>
+            </div>
+            <div><a class="h4 ms-2 fw-bold" style="text-decoration: none;" href="/user_profile/{{profile.uid}}">{{profile.user.first_name}}&nbsp;{{profile.user.last_name}}</a></div>
+        </div>
+    </div>
+</nav>
+
+<p class="margin-res">&nbsp;    </p>
+
+
+<style>
+    @media (min-width : 500px) {
+        .margin-res {
+            margin-top: -10px;
+        }
+    }
+    @media (max-width : 500px) {
+        .margin-res {
+            margin-top: -24px;
+        }
+    }
+</style>
+
+
+{% load my_filters %}
+                  
+
+<section class="my-5">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-lg-10 col-xl-8">
+                <div class=" my-3" style="border: none;">
+                    <div class="" id="separator">
+                        <div class="mb-0 my-4 custom-css">
+                            {% if messages|length ==  0 %}
+                                
+                            <div class="container">
+                                <div class="pt-3 pb-1" style="background-color: #2a2f33; border-radius: 10px;">
+                                    <div class="text-center">
+                                        <p class="text-light fw-bold h5 mb-3">No Messages!</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% else %}
+                            {% for message in messages %}
+                            {% if message.message.sender.user == request.user %}
+                            <div class="comment-section" id="display-data" style="margin-bottom: -10px;">
+                                <div class="d-flex justify-content-end">
+                                    <div style="max-width: 87%;" class="">
+                                        <div class="">
+                                            <div class="col-12">
+                                                <div class="comment-card text-justify"
+                                                    style="background-color: #31302b; border-radius: 12px; padding-top: 5px; padding-left: 10px; padding-right: 10px;">
+                                                    <small class="text-light text-size">{{message.message.message_body}}</small>
+                                                    <p class="text-end pb-1 ms-4 text-size-2">{{ message.formated_time}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                             
+                            {% else %}
+                            <div class="comment-section" id="display-data" style="margin-bottom: -10px;">
+                                <div class=" d-flex justify-content-start">
+                                    <div style="max-width: 87%;">
+                                        <div class="">
+                                            <div class="col-12">
+                                                <div class="comment-card"
+                                                    style="background-color: #2a2f33; border-radius: 12px; padding-top: 5px; padding-left: 10px; padding-right: 10px;">
+                                                    <small class="text-light text-size">{{message.message.message_body}}</small>
+                                                    <p class="text-end pb-1 ms-4 text-size-2">{{ message.formated_time}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                                   
+                            {% endif %}
+                            {% endfor %}
+                                
+                            {% endif %}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-lg-10 col-xl-8">
+                <div class=" my-3" style="border: none;">
+                    <div class="w-100" id="separator">
+
+                        <div class="comment-section1 bg-dark" style="margin-bottom: -23px;">
+                            <div class="mt-2">
+                                <form method="POST" id="post-form">
+                                    {% csrf_token %}
+                                    <div class="d-flex flex-start w-100">
+                                        <div class="parent-image">
+                                            <img class="rounded w-100 me-3"
+                                                src="{{user.Profile_image.url}}"
+                                                alt="avatar" />
+                                        </div>
+
+
+                                        <div class="input-group " style="padding-right: 6px; padding-left: 8px;">
+                                            <input required name="message_body" type="text" class="rounded form-control me-2" placeholder="{% if messages|length ==  0 %}Start convertation....{% else %}Type a message{% endif %}" aria-label="Type a public comment" aria-describedby="btnGroupAddon">
+                                            
+                                            <button class="rounded input-group-text btn btn-sm fw-bold text-black" style="background-color: #ebac00;">
+                                               
+                                                <svg width="30" height="30" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#000000" stroke-width="0.00024000000000000003"> <g id="SVGRepo_bgCarrier" stroke-width="0"></g> <g id="SVGRepo_tracerCarrier" stroke-linecap="round"     stroke-linejoin="round"></g> <g id="SVGRepo_iconCarrier">     <path         d="M6.99811 10.2467L7.43298 11.0077C7.70983 11.4922 7.84825 11.7344 7.84825 12C7.84825 12.2656 7.70983 12.5078 7.43299 12.9923L7.43298 12.9923L6.99811 13.7533C5.75981 15.9203 5.14066 17.0039 5.62348 17.5412C6.1063 18.0785 7.24961 17.5783 9.53623 16.5779L15.8119 13.8323C17.6074 13.0468 18.5051 12.654 18.5051 12C18.5051 11.346 17.6074 10.9532 15.8119 10.1677L9.53624 7.4221C7.24962 6.42171 6.1063 5.92151 5.62348 6.45883C5.14066 6.99615 5.75981 8.07966 6.99811 10.2467Z"         fill="#222222"></path> </g>
+                                               
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                            </div>
+                            </form>
+                            <div class="card card-body bg-dark comment-section1" style="border: none;"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+
+<script>
+    // The comment bar alignment 
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const commentSection = document.querySelector('.comment-section1');
+        const separator = document.getElementById('separator'); // Get the <hr> element
+        const cardContainer = document.querySelector('.card-container'); // Example: Replace with your card container class
+
+        function setFixedBottom() {
+            const separatorRect = separator ? separator.getBoundingClientRect() : { width: 0 }; // Get bounding client rect of <hr> element
+            const separatorWidth = separatorRect.width; // Get width from bounding client rect
+            const cardContainerWidth = cardContainer ? cardContainer.clientWidth : window.innerWidth; // Example: Replace with your card container width
+
+            commentSection.style.position = 'fixed';
+            commentSection.style.bottom = '0';
+            commentSection.style.left = '50%'; // Align to center horizontally
+            commentSection.style.transform = 'translateX(-50%)'; // Center horizontally
+            commentSection.style.width = separatorWidth + 'px'; // Set width equal to separator's exact width
+            commentSection.style.zIndex = '1030';
+            commentSection.style.padding = '1px'; // Optional padding
+        }
+
+        // Set the styles initially
+        setFixedBottom();
+
+        window.addEventListener('resize', setFixedBottom);
+    });
+
+</script>
+
+<style>
+    .custom-css {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: flex-end;
+    }
+    @media (max-width: 500px) {
+        .post-text {
+            font-size: 11px;
+        }
+    }
+
+    .preserve-whitespace {
+        white-space: pre-wrap;
+        /* Preserve whitespace and wrap text */
+        font-family: monospace;
+        /* Optional: Use a monospaced font for better alignment */
+    }
+
+    .parent-image-2 {
+        height: 60px;
+        width: 60px;
+    }
+
+    .parent-image-2 img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    @media (max-width: 500px) {
+        .parent-image-2 {
+            height: 45px;
+            width: 45px;
+        }
+
+        .parent-image-2 img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .big-text {
+            font-size: 13px;
+        }
+
+        .small-text {
+            font-size: 10px;
+        }
+    }
+
+    @media (max-width: 500px) {
+        .post-text {
+            font-size: 11px;
+        }
+
+        .parent-image-3 {
+            border-radius: 12px;
+            max-height: 300px;
+            width: 100%;
+        }
+
+        .parent-image-3 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .parent-image-5 {
+            width: 100%;
+            max-height: 300px;
+            overflow: hidden;
+            border-radius: 7px;
+        }
+
+        .parent-image-5 img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .text-size-2 {
+            font-size: 9px;
+        }
+    }
+
+    @media (min-width: 501px) {
+        .parent-image-3 {
+            border-radius: 12px;
+            height: 500px;
+            max-height: 1000px;
+            width: 100%;
+        }
+
+        .parent-image-3 img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .parent-image-5 {
+            width: 100%;
+            max-height: 600px;
+            overflow: hidden;
+            border-radius: 7px;
+        }
+
+        .parent-image-5 img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+        .text-size {
+            font-size: 16px;
+        }
+        .text-size-2 {
+            font-size: 10px;
+        }
+    }
+
+    .form-control {
+        border-radius: 20px;
+        border-color: #ebac00;
+        box-shadow: inset 0 0px 2px #ebac00, 0 0 0px #ebac00;
+    }
+
+    .form-control:focus {
+        border-color: #ebac00;
+        box-shadow: inset 0 0px 2px #ebac00, 0 0 0px #ebac00;
+    }
+
+    .parent-image {
+        height: 40px;
+        width: 46px;
+        overflow: hidden;
+    }
+
+    .parent-image img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .parent-image-4 {
+        height: 36px;
+        width: 100%;
+        max-width: 36px;
+        overflow: hidden;
+    }
+
+    .parent-image-4 img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+</style>
+{% endblock %}

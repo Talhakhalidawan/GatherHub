@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}
+<title>Help</title>
+{% endblock %}
+{% block favicon %}
+<link rel="icon" type="image/png" sizes="16x16" href="https://i.postimg.cc/PJmtfZ79/LOGO-modified.png' border='0' alt='LOGO-modified">
+{% endblock  %}
+
+{% block body %}
+
+<nav class="navbar d-flex justify-content-center my-3">
+    <div class="">
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="580.619 330.399 907.875 870.595">
+            <path xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, 1, 1008.0000000000001, 342)"
+                d="m0 0h339l19 1 1 5v194l-113 1-5-2v-81h-224l-26 1-26 4-25 7-21 9-21 11-16 11-10 8-13 11-7 7-7 8-12 15-12 19-10 19-8 21-6 21-4 20-1 8-2 44h72l1-39 3-18 5-17 10-22 12-18 11-13 8-8 19-14 18-10 17-6 10-3h4l1 367 14 1 45 1 201 1v-157h-71l-1 83-1 1h-116v-201l3-1h283l20 1 1 1v388l-2 2h-361l-30-3-31-6-26-7-40-14-6-3-1-32v-131l1-6h-73l1 116h-4l-29-29-9-11-12-15-15-23-9-16-8-15-9-21-11-33-5-21-5-30-2-22v-37l3-31 5-26 7-26 8-23 11-25 11-21 14-22 9-12 11-14 22-24 16-15 16-13 18-13 21-13 27-14 25-10 21-7 30-7 25-4z"
+                style="fill: #ebac00;" />
+            </svg>
+        </div>
+    </nav>
+    <div class="d-flex justify-content-center my-0">
+        <a class="navbar-brand fs-3 fw-bold mx-1" style="margin-top: -30px;" href="">How can we assist you? </a>
+    </div>
+
+
+<section class="post-box comment-toggle">
+    <div class="container post-content">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-lg-10 col-xl-8">
+                <div class="card full-screen-post" style="border: none;">
+                    <div class="card-body" id="separator">
+                        
+                        <div class="text-center my-5">
+                            <P class="h5" style="color: #ebac00;">Please describe the issue you're experiencing.</P>
+                            <hr class="my-3" style="width: 700px; margin: 0 auto; max-width: 100%;">
+                            <div>
+                            </div>
+                            {% if messages %}
+                            {% for message in messages %}
+                            {% if 'success' in message.tags %}
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert" id="success-alert">
+                                <strong>{{ message }}</strong>
+                                <button id="myWish" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                            {% endif %}
+                            <form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div>
+                                    <textarea maxlength="300" class="text-area form-control" name="help_text" placeholder="Describe your issue here..."></textarea>
+                                    <hr class="my-3" style="width: 700px; margin: 0 auto; max-width: 100%;"> 
+                                <div class="form-group">
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <button class="btn w-50 btn-warning fw-bold" style="background-color: #ebac00;" type="submit">Submit Request</button>
+                                </div>
+                            </div>
+                        </form> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .text-area {
+        border: none;
+        resize: none;
+        height: 200px;
+    }
+    .form-control:focus {
+        border-color: #ebac00;
+        box-shadow: inset 0 0 0 #ebac00, 0 0 0 #ebac00;
+    }
+    .link-3 {
+        color: #ebac00;
+        text-decoration: none;
+    }
+    .link-3:hover {
+        text-decoration: underline;
+        color: #ebac00;
+    }
+    
+</style>
+
+{% endblock %}

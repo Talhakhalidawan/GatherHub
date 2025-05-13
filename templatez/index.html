@@ -1,0 +1,1328 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<nav class="navbar navbar-expand-lg navbar-custom bg-dark">
+  <div class="mx-3 m-2">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="580.619 330.399 907.875 870.595">
+      <path xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, 1, 1008.0000000000001, 342)"
+        d="m0 0h339l19 1 1 5v194l-113 1-5-2v-81h-224l-26 1-26 4-25 7-21 9-21 11-16 11-10 8-13 11-7 7-7 8-12 15-12 19-10 19-8 21-6 21-4 20-1 8-2 44h72l1-39 3-18 5-17 10-22 12-18 11-13 8-8 19-14 18-10 17-6 10-3h4l1 367 14 1 45 1 201 1v-157h-71l-1 83-1 1h-116v-201l3-1h283l20 1 1 1v388l-2 2h-361l-30-3-31-6-26-7-40-14-6-3-1-32v-131l1-6h-73l1 116h-4l-29-29-9-11-12-15-15-23-9-16-8-15-9-21-11-33-5-21-5-30-2-22v-37l3-31 5-26 7-26 8-23 11-25 11-21 14-22 9-12 11-14 22-24 16-15 16-13 18-13 21-13 27-14 25-10 21-7 30-7 25-4z"
+        style="fill: #ebac00;" />
+    </svg>
+    <a class="navbar-brand fs-3 fw-bold mx-1" href="">GatherHub</a>
+  </div>
+</nav>
+
+<nav id="navbar" class="navbar navbar-custom bg-dark fixed-top">
+  <div class="container d-flex justify-content-evenly">
+    <a href="">
+      <svg class="height-res" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        fill="#ebac00" version="1.1" id="Capa_1" viewBox="0 0 547.596 547.596" xml:space="preserve">
+        <g>
+          <path
+            d="M540.76,254.788L294.506,38.216c-11.475-10.098-30.064-10.098-41.386,0L6.943,254.788   c-11.475,10.098-8.415,18.284,6.885,18.284h75.964v221.773c0,12.087,9.945,22.108,22.108,22.108h92.947V371.067   c0-12.087,9.945-22.108,22.109-22.108h93.865c12.239,0,22.108,9.792,22.108,22.108v145.886h92.947   c12.24,0,22.108-9.945,22.108-22.108v-221.85h75.965C549.021,272.995,552.081,264.886,540.76,254.788z" />
+        </g>
+      </svg>
+    </a>
+    <a href="/chat-list">
+      <svg class="buttn-1 height-res-44"  viewBox="0 0 24 24" id="meteor-icon-kit__solid-messanger" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path fill-rule="evenodd" clip-rule="evenodd" d="M0 11.6407C0 4.9526 5.23944 0.000488281 12 0.000488281C18.7606 0.000488281 24 4.9526 24 11.6407C24 18.3289 18.7606 23.281 12 23.281C10.7855 23.281 9.61932 23.1216 8.52555 22.8198C8.31308 22.7619 8.08853 22.7788 7.88571 22.8681L5.50503 23.9184C4.88209 24.1912 4.17948 23.7494 4.15775 23.0685L4.09256 20.9341C4.0829 20.6709 3.96459 20.427 3.76901 20.2508C1.43421 18.1623 0 15.1393 0 11.6407ZM8.32032 9.45321L4.79517 15.0452C4.45473 15.5812 5.1163 16.1872 5.62093 15.8033L9.40684 12.9301C9.66278 12.7369 10.0153 12.7345 10.2736 12.9277L13.0769 15.0307C13.9171 15.6609 15.1195 15.4387 15.6797 14.5502L19.2048 8.95823C19.5453 8.42222 18.8837 7.81618 18.3791 8.20009L14.5932 11.0733C14.3372 11.2665 13.9847 11.2689 13.7264 11.0757L10.9231 8.97272C10.0829 8.34254 8.88048 8.56467 8.32032 9.45321Z" fill=""></path></g></svg>
+    </a>
+    <a href="/all_people">
+      <svg class="buttn height-res" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        id="Layer_1" style="enable-background:new 0 0 30 30;" version="1.1" viewBox="0 0 30 30" xml:space="preserve">
+        <path
+          d="M12.684,19.993C12.382,19.732,12.139,19.417,12,19v-2c0.383-0.189,1.363-1.324,1.734-2.395  c-0.314-0.498-0.56-1.125-0.664-1.94c-0.086-0.677,0.016-1.266,0.223-1.755C13.138,10.371,13,9.696,13,9  c0-1.386,0.287-2.655,0.799-3.757C13.337,4.779,12.743,4.5,12,4.5c0,0-0.374-1.5-2.5-1.5C6.012,3,4,5.721,4,9  c0,1.104,0.528,2.214,0.528,2.214c-0.212,0.122-0.562,0.51-0.474,1.198c0.164,1.283,0.72,1.608,1.074,1.635  C5.263,15.245,6.55,16.777,7,17v2c-1,3-7,1-7,8h9C9,22.824,10.864,20.99,12.684,19.993z" />
+        <g>
+          <path
+            d="M23,19v-2c0.45-0.223,1.737-1.755,1.872-2.952c0.354-0.027,0.91-0.352,1.074-1.635c0.088-0.689-0.262-1.076-0.474-1.198   c0,0,0.528-1.003,0.528-2.214c0-2.428-0.953-4.5-3-4.5c0,0-0.374-1.5-2.5-1.5C17.012,3,15,5.721,15,9   c0,1.104,0.528,2.214,0.528,2.214c-0.212,0.122-0.562,0.51-0.474,1.198c0.164,1.283,0.72,1.608,1.074,1.635   C16.263,15.245,17.55,16.777,18,17v2c-1,3-7,1-7,8h19C30,20,24,22,23,19z" />
+        </g>
+      </svg>
+    </a>
+    <a href="/notifications">
+      {% if notifications == 0 %}
+      <svg class="buttn height-res-1" xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink" style="enable-background:new 0 0 24 24;" version="1.1"
+      viewBox="0 0 24 23" xml:space="preserve">
+      <g id="info" />
+      <g id="icons">
+          <g id="notification">
+              <path
+                  d="M13.7,20h-3.5c-0.7,0-1.3,0.8-0.9,1.5C9.9,22.4,10.9,23,12,23s2.1-0.6,2.6-1.5C15,20.8,14.5,20,13.7,20z" />
+              <path
+                  d="M21.8,16.7l-0.4-0.5C19.8,14.1,19,11.6,19,9V8.3c0-3.6-2.6-6.8-6.2-7.2C8.6,0.6,5,3.9,5,8v1c0,2.6-0.8,5.1-2.4,7.2    l-0.4,0.5c-0.2,0.2-0.3,0.6-0.2,0.8C2.3,18.4,3.1,19,4,19h16c0.9,0,1.7-0.6,1.9-1.5C22,17.2,21.9,16.9,21.8,16.7z" />
+          </g>
+      </g>
+  </svg>
+      {% else %}
+      <div style="position: relative; width: 50px; height: 50px;">
+        <svg class="buttn height-res-1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" style="enable-background:new 0 0 24 24;" version="1.1"
+        viewBox="0 0 24 23" xml:space="preserve">
+        <g id="info" />
+        <g id="icons">
+            <g id="notification">
+                <path
+                    d="M13.7,20h-3.5c-0.7,0-1.3,0.8-0.9,1.5C9.9,22.4,10.9,23,12,23s2.1-0.6,2.6-1.5C15,20.8,14.5,20,13.7,20z" />
+                <path
+                    d="M21.8,16.7l-0.4-0.5C19.8,14.1,19,11.6,19,9V8.3c0-3.6-2.6-6.8-6.2-7.2C8.6,0.6,5,3.9,5,8v1c0,2.6-0.8,5.1-2.4,7.2    l-0.4,0.5c-0.2,0.2-0.3,0.6-0.2,0.8C2.3,18.4,3.1,19,4,19h16c0.9,0,1.7-0.6,1.9-1.5C22,17.2,21.9,16.9,21.8,16.7z" />
+            </g>
+        </g>
+    </svg>
+        <span id="notification-count" style="position: absolute; top: 5px; right: 5px; background-color: #ff0000; color: rgb(255, 255, 255); border-radius: 50%; padding: 1px 6px; font-size: 12px;">{{notifications}}</span>
+    </div>        
+      {% endif %}
+
+    </a>
+    <button style="outline: none; border: none; box-shadow: none;" class="navbar-toggler height-res" type="button"
+      data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar"
+      aria-label="Toggle navigation">
+      <svg class="buttn-2 height-res navbar-toggler-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+       <path d="M4 6H20M4 12H20M4 18H20" />
+      </svg>
+    </button>
+
+  </div>
+</nav>
+
+
+
+
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+  <div class="offcanvas-header">
+    <div class="mx-3 m-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="580.619 330.399 907.875 870.595">
+        <path xmlns="http://www.w3.org/2000/svg" transform="matrix(1, 0, 0, 1, 1008.0000000000001, 342)"
+          d="m0 0h339l19 1 1 5v194l-113 1-5-2v-81h-224l-26 1-26 4-25 7-21 9-21 11-16 11-10 8-13 11-7 7-7 8-12 15-12 19-10 19-8 21-6 21-4 20-1 8-2 44h72l1-39 3-18 5-17 10-22 12-18 11-13 8-8 19-14 18-10 17-6 10-3h4l1 367 14 1 45 1 201 1v-157h-71l-1 83-1 1h-116v-201l3-1h283l20 1 1 1v388l-2 2h-361l-30-3-31-6-26-7-40-14-6-3-1-32v-131l1-6h-73l1 116h-4l-29-29-9-11-12-15-15-23-9-16-8-15-9-21-11-33-5-21-5-30-2-22v-37l3-31 5-26 7-26 8-23 11-25 11-21 14-22 9-12 11-14 22-24 16-15 16-13 18-13 21-13 27-14 25-10 21-7 30-7 25-4z"
+          style="fill: #ebac00;" />
+      </svg>
+      <a class="navbar-brand fs-3 fw-bold mx-1 offcanvas-title" href="" id="offcanvasNavbarLabel">GatherHub</a>
+    </div>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <section class="post-box my-2">
+    <div class="container post-content">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12 col-lg-10">
+          <div class="card-container  full-screen-post" style="border: none;">
+            <div class="card-body" id="separator">
+
+              <div class="d-flex justify-content-between align-items-center">
+
+                <a href="/all_people" style="text-decoration: none;">
+                  <div class="card m-1" style="border: none; background-color: #2a2f33; border-radius: 12px;">
+                    <div class="mx-4 my-3 mb-3 buttn-txt buttn"><span><svg class=" sm-size"
+                          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1"
+                          style="enable-background:new 0 0 30 30;" version="1.1" viewBox="0 0 30 30"
+                          xml:space="preserve">
+                          <path
+                            d="M12.684,19.993C12.382,19.732,12.139,19.417,12,19v-2c0.383-0.189,1.363-1.324,1.734-2.395  c-0.314-0.498-0.56-1.125-0.664-1.94c-0.086-0.677,0.016-1.266,0.223-1.755C13.138,10.371,13,9.696,13,9  c0-1.386,0.287-2.655,0.799-3.757C13.337,4.779,12.743,4.5,12,4.5c0,0-0.374-1.5-2.5-1.5C6.012,3,4,5.721,4,9  c0,1.104,0.528,2.214,0.528,2.214c-0.212,0.122-0.562,0.51-0.474,1.198c0.164,1.283,0.72,1.608,1.074,1.635  C5.263,15.245,6.55,16.777,7,17v2c-1,3-7,1-7,8h9C9,22.824,10.864,20.99,12.684,19.993z" />
+                          <g>
+                            <path
+                              d="M23,19v-2c0.45-0.223,1.737-1.755,1.872-2.952c0.354-0.027,0.91-0.352,1.074-1.635c0.088-0.689-0.262-1.076-0.474-1.198   c0,0,0.528-1.003,0.528-2.214c0-2.428-0.953-4.5-3-4.5c0,0-0.374-1.5-2.5-1.5C17.012,3,15,5.721,15,9   c0,1.104,0.528,2.214,0.528,2.214c-0.212,0.122-0.562,0.51-0.474,1.198c0.164,1.283,0.72,1.608,1.074,1.635   C16.263,15.245,17.55,16.777,18,17v2c-1,3-7,1-7,8h19C30,20,24,22,23,19z" />
+                          </g>
+                        </svg></span>
+                      <span class="fw-bold">People</span>
+                    </div>
+                  </div>
+                </a>
+
+                <a href="/profile" style="text-decoration: none;">
+                  <div class="card m-1" style="border: none; background-color: #2a2f33; border-radius: 12px;">
+                    <div class="mx-4 my-3 mb-3 buttn-txt buttn"><span><svg class=" sm-size"
+                          xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="Layer_1"
+                          style="enable-background:new 0 0 30 30;" version="1.1" viewBox="0 0 30 30"
+                          xml:space="preserve">
+                          <path
+                            d="M18,19v-2c0.45-0.223,1.737-1.755,1.872-2.952c0.354-0.027,0.91-0.352,1.074-1.635c0.088-0.689-0.262-1.076-0.474-1.198  c0,0,0.528-1.003,0.528-2.214c0-2.428-0.953-4.5-3-4.5c0,0-0.711-1.5-3-1.5c-4.242,0-6,2.721-6,6c0,1.104,0.528,2.214,0.528,2.214  c-0.212,0.122-0.562,0.51-0.474,1.198c0.164,1.283,0.72,1.608,1.074,1.635C10.263,15.245,11.55,16.777,12,17v2c-1,3-9,1-9,8h24  C27,20,19,22,18,19z" />
+                        </svg></span>
+                      <span class="fw-bold">Profile</span>
+                    </div>
+                  </div>
+                </a>
+                
+              </div>
+
+              <div class="my-3">
+                <a class="" href="/settings" style="text-decoration: none;">
+                  <div class="card m-1 d-flex my-2" style="border: none; background-color: #2a2f33; border-radius: 12px;">
+                  <div class="d-flex justify-content-between align-items-center mx-4 my-2 mb-2 buttn-txt buttn">
+                    <span class="fw-bold">Settings</span>
+                    <span class="">
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="" height="24" width="24" version="1.1" id="Capa_1" viewBox="-4.32 -4.32 62.64 62.64" xml:space="preserve" stroke-width="2.3">
+
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                        
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                        
+                        <g id="SVGRepo_iconCarrier"> <g> <path d="M51.22,21h-5.052c-0.812,0-1.481-0.447-1.792-1.197s-0.153-1.54,0.42-2.114l3.572-3.571 c0.525-0.525,0.814-1.224,0.814-1.966c0-0.743-0.289-1.441-0.814-1.967l-4.553-4.553c-1.05-1.05-2.881-1.052-3.933,0l-3.571,3.571 c-0.574,0.573-1.366,0.733-2.114,0.421C33.447,9.313,33,8.644,33,7.832V2.78C33,1.247,31.753,0,30.22,0H23.78 C22.247,0,21,1.247,21,2.78v5.052c0,0.812-0.447,1.481-1.197,1.792c-0.748,0.313-1.54,0.152-2.114-0.421l-3.571-3.571 c-1.052-1.052-2.883-1.05-3.933,0l-4.553,4.553c-0.525,0.525-0.814,1.224-0.814,1.967c0,0.742,0.289,1.44,0.814,1.966l3.572,3.571 c0.573,0.574,0.73,1.364,0.42,2.114S8.644,21,7.832,21H2.78C1.247,21,0,22.247,0,23.78v6.439C0,31.753,1.247,33,2.78,33h5.052 c0.812,0,1.481,0.447,1.792,1.197s0.153,1.54-0.42,2.114l-3.572,3.571c-0.525,0.525-0.814,1.224-0.814,1.966 c0,0.743,0.289,1.441,0.814,1.967l4.553,4.553c1.051,1.051,2.881,1.053,3.933,0l3.571-3.572c0.574-0.573,1.363-0.731,2.114-0.42 c0.75,0.311,1.197,0.98,1.197,1.792v5.052c0,1.533,1.247,2.78,2.78,2.78h6.439c1.533,0,2.78-1.247,2.78-2.78v-5.052 c0-0.812,0.447-1.481,1.197-1.792c0.751-0.312,1.54-0.153,2.114,0.42l3.571,3.572c1.052,1.052,2.883,1.05,3.933,0l4.553-4.553 c0.525-0.525,0.814-1.224,0.814-1.967c0-0.742-0.289-1.44-0.814-1.966l-3.572-3.571c-0.573-0.574-0.73-1.364-0.42-2.114 S45.356,33,46.168,33h5.052c1.533,0,2.78-1.247,2.78-2.78V23.78C54,22.247,52.753,21,51.22,21z M52,30.22 C52,30.65,51.65,31,51.22,31h-5.052c-1.624,0-3.019,0.932-3.64,2.432c-0.622,1.5-0.295,3.146,0.854,4.294l3.572,3.571 c0.305,0.305,0.305,0.8,0,1.104l-4.553,4.553c-0.304,0.304-0.799,0.306-1.104,0l-3.571-3.572c-1.149-1.149-2.794-1.474-4.294-0.854 c-1.5,0.621-2.432,2.016-2.432,3.64v5.052C31,51.65,30.65,52,30.22,52H23.78C23.35,52,23,51.65,23,51.22v-5.052 c0-1.624-0.932-3.019-2.432-3.64c-0.503-0.209-1.021-0.311-1.533-0.311c-1.014,0-1.997,0.4-2.761,1.164l-3.571,3.572 c-0.306,0.306-0.801,0.304-1.104,0l-4.553-4.553c-0.305-0.305-0.305-0.8,0-1.104l3.572-3.571c1.148-1.148,1.476-2.794,0.854-4.294 C10.851,31.932,9.456,31,7.832,31H2.78C2.35,31,2,30.65,2,30.22V23.78C2,23.35,2.35,23,2.78,23h5.052 c1.624,0,3.019-0.932,3.64-2.432c0.622-1.5,0.295-3.146-0.854-4.294l-3.572-3.571c-0.305-0.305-0.305-0.8,0-1.104l4.553-4.553 c0.304-0.305,0.799-0.305,1.104,0l3.571,3.571c1.147,1.147,2.792,1.476,4.294,0.854C22.068,10.851,23,9.456,23,7.832V2.78 C23,2.35,23.35,2,23.78,2h6.439C30.65,2,31,2.35,31,2.78v5.052c0,1.624,0.932,3.019,2.432,3.64 c1.502,0.622,3.146,0.294,4.294-0.854l3.571-3.571c0.306-0.305,0.801-0.305,1.104,0l4.553,4.553c0.305,0.305,0.305,0.8,0,1.104 l-3.572,3.571c-1.148,1.148-1.476,2.794-0.854,4.294c0.621,1.5,2.016,2.432,3.64,2.432h5.052C51.65,23,52,23.35,52,23.78V30.22z"/> <path d="M27,18c-4.963,0-9,4.037-9,9s4.037,9,9,9s9-4.037,9-9S31.963,18,27,18z M27,34c-3.859,0-7-3.141-7-7s3.141-7,7-7 s7,3.141,7,7S30.859,34,27,34z"/> </g> </g>
+                        
+                        </svg>
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <div class="my-3">
+              <a class="" href="/logout-user" style="text-decoration: none;">
+                <div class="card m-1 d-flex my-2" style="border: none; background-color: #2a2f33; border-radius: 12px;">
+                  <div class="d-flex justify-content-between align-items-center mx-4 my-2 mb-2 buttn-txt buttn">
+                    <span class="fw-bold">Logout</span>
+                    <span class="">
+                      <svg width="24" height="24" viewBox="0 0 52 68" enable-background="new 0 0 52 52"
+                        xml:space="preserve">
+                        <g>
+                          <path
+                            d="M21,48.5v-3c0-0.8-0.7-1.5-1.5-1.5h-10C8.7,44,8,43.3,8,42.5v-33C8,8.7,8.7,8,9.5,8h10   C20.3,8,21,7.3,21,6.5v-3C21,2.7,20.3,2,19.5,2H6C3.8,2,2,3.8,2,6v40c0,2.2,1.8,4,4,4h13.5C20.3,50,21,49.3,21,48.5z" />
+                          <path
+                          d="M49.6,27c0.6-0.6,0.6-1.5,0-2.1L36.1,11.4c-0.6-0.6-1.5-0.6-2.1,0l-2.1,2.1c-0.6,0.6-0.6,1.5,0,2.1l5.6,5.6   c0.6,0.6,0.2,1.7-0.7,1.7H15.5c-0.8,0-1.5,0.6-1.5,1.4v3c0,0.8,0.7,1.6,1.5,1.6h21.2c0.9,0,1.3,1.1,0.7,1.7l-5.6,5.6   c-0.6,0.6-0.6,1.5,0,2.1l2.1,2.1c0.6,0.6,1.5,0.6,2.1,0L49.6,27z" />
+                        </g>
+                      </svg></span>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+</div>
+
+
+
+
+
+
+<style>
+  @media (min-width : 751px) {
+    .height-res-44 {
+      width: 40px;
+      height: 40px;
+    }
+    .height-res {
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  @media (max-width : 750px) {
+    .height-res-44 {
+      width: 35px;
+      height: 35px;
+    }
+    .height-res {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  @media (min-width : 751px) {
+    .height-res-1 {
+      width: 40px;
+      height: 40px;
+    }   
+  }
+
+  @media (max-width : 750px) {
+    .height-res-1 {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .sm-size {
+    width: 39px;
+    height: 39px;
+  }
+</style>
+
+<br>
+<br>
+<br>
+
+<style>
+  .buttn {
+    fill: white;
+    stroke: white;
+  }
+
+  .buttn:hover {
+    fill: #ebac00;
+    stroke: #ebac00;
+  }
+  .buttn-4 {
+    fill: white;
+  }
+
+  .buttn-4:hover {
+    fill: #ebac00;
+  }
+
+  .buttn-txt {
+    color: white;
+  }
+
+  .buttn-txt:hover {
+    color: #ebac00;
+  }
+
+  .buttn-2 {
+    stroke: white;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .buttn-2:hover {
+    stroke: #ebac00;
+  }
+</style>
+
+<style>
+  .form-control:focus {
+    border-color: #ebac00;
+    box-shadow: inset 0 1px 2px #ebac00, 0 0 5px #ebac00;
+  }
+</style>
+<hr style="width: 750px; margin: 0 auto; max-width: 100%;">
+
+<div class="container post-content my-2" style="margin-bottom: -10px !important;">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-12 col-lg-10 col-xl-8">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 layout-spacing">
+            <div class="statbox widget box box-shadow">
+              <div class="widget-content widget-content-area">
+                <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div id="content_1" class="tabcontent story-area">
+                      <div class="story-container-1">
+                        <a class="single-story-self card" href="javascript:void(0)" style="text-decoration: none;">
+                          <div class="text-center">
+                            <img height="170" width="110" src="{{user.Profile_image.url}}"
+                              class="single-create-story-bg" alt="Story Background">
+                            <div class="create-story-author">
+                              <svg style="margin-top: -25px;" class="" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" fill="white" height="30" width="30"
+                                version="1.1" viewBox="0 0 512 512" enable-background="new 0 0 512 512">
+                                <g>
+                                  <g>
+                                    <path
+                                      d="M256,11C120.9,11,11,120.9,11,256s109.9,245,245,245s245-109.9,245-245S391.1,11,256,11z M256,460.2c-112.6,0-204.2-91.6-204.2-204.2S143.4,51.8,256,51.8S460.2,143.4,460.2,256S368.6,460.2,256,460.2z" />
+                                    <path
+                                      d="m357.6,235.6h-81.2v-81.2c0-11.3-9.1-20.4-20.4-20.4-11.3,0-20.4,9.1-20.4,20.4v81.2h-81.2c-11.3,0-20.4,9.1-20.4,20.4s9.1,20.4 20.4,20.4h81.2v81.2c0,11.3 9.1,20.4 20.4,20.4 11.3,0 20.4-9.1 20.4-20.4v-81.2h81.2c11.3,0 20.4-9.1 20.4-20.4s-9.1-20.4-20.4-20.4z" />
+                                  </g>
+                                </g>
+                              </svg>
+                              <p style="color: white;">Create a story</p>
+                            </div>
+                          </div>
+                        </a>
+
+                        <!-- Repeat this block for each story -->
+                        <!-- <a class="single-story" href="javascript:void(0)" style="text-decoration: none;">
+                          <img height="170" width="110"
+                            src="https://images.unsplash.com/photo-1458571037713-913d8b481dc6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1920" class="single-story-bg"
+                            alt="Story">
+                        </a>
+                        <a class="single-story" href="javascript:void(0)" style="text-decoration: none;">
+                          <img height="170" width="110"
+                            src="https://images.unsplash.com/photo-1458571037713-913d8b481dc6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1920" class="single-story-bg"
+                            alt="Story">
+                        </a>
+                        <a class="single-story" href="javascript:void(0)" style="text-decoration: none;">
+                          <img height="170" width="110"
+                            src="https://images.unsplash.com/photo-1458571037713-913d8b481dc6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1920" class="single-story-bg"
+                            alt="Story">
+                        </a>
+                        <a class="single-story" href="javascript:void(0)" style="text-decoration: none;">
+                          <img height="170" width="110"
+                            src="https://images.unsplash.com/photo-1458571037713-913d8b481dc6?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=1080&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=1920"
+                            class="single-story-bg" alt="Story">
+                        </a> -->
+                        <!-- Add more stories as needed -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<hr style="width: 750px; margin: 0 auto; max-width: 100%;">
+
+<div id="story-overlay" class="story-overlay">
+  <div class="story-content">
+    <img id="story-img" class="rounded img-fluid" src="" alt="Story">
+    <div id="story-timer" class="story-timer"></div>
+    <button id="prev-story" class="btn-"><i class="bi bi-arrow-left"></i></button>
+    <button id="next-story" class="btn-"><i class="bi bi-arrow-right"></i></button>
+    <button id="close-story" class="close-btn">&times;</button>
+    <button id="pause-story" class="control-btn">Pause</button>
+    <button id="play-story" class="control-btn" style="display: none;">Play</button>
+  </div>
+</div>
+
+<style>
+    .buttn-1 {
+    fill: white;
+  }
+
+  .buttn-1:hover {
+    fill: #ebac00;
+  }
+
+  .story-area {
+    overflow-y: hidden;
+    overflow-x: scroll;
+    /* Enable horizontal scrolling */
+    white-space: nowrap;
+    padding-bottom: 10px;
+    -webkit-overflow-scrolling: touch;
+    /* Smooth scrolling on iOS */
+  }
+
+  .story-area::-webkit-scrollbar {
+    display: none;
+    /* Hide scrollbar for WebKit browsers */
+  }
+
+  .story-area {
+    -ms-overflow-style: none;
+    /* Hide scrollbar for Internet Explorer and Edge */
+    scrollbar-width: none;
+    /* Hide scrollbar for Firefox */
+  }
+
+  .story-container-1 {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .single-story {
+    display: inline-block;
+    height: 175px;
+    width: 110px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 10px;
+  }
+
+  .single-story img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .single-story-self {
+    display: inline-block;
+    height: 175px;
+    width: 110px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 10px;
+  }
+
+  .single-story-self img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .story-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .story-content {
+    position: relative;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .story-timer {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .story-timer::after {
+    content: '';
+    display: block;
+    height: 100%;
+    background-color: #fff;
+    width: 0;
+  }
+
+  .btn- {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  #prev-story {
+    left: 10px;
+  }
+
+  #next-story {
+    right: 10px;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .close-btn {
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    font-size: 30px;
+  }
+
+  .control-btn {
+    top: 10px;
+    right: 50px;
+  }
+
+  .preserve-whitespace {
+    white-space: pre-wrap;
+    /* Preserve whitespace and wrap text */
+    font-family: monospace;
+    /* Optional: Use a monospaced font for better alignment */
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const stories = document.querySelectorAll('.single-story img');
+    const overlay = document.getElementById('story-overlay');
+    const storyImg = document.getElementById('story-img');
+    const storyTimer = document.getElementById('story-timer');
+    const prevBtn = document.getElementById('prev-story');
+    const nextBtn = document.getElementById('next-story');
+    const closeBtn = document.getElementById('close-story');
+    const pauseBtn = document.getElementById('pause-story');
+    const playBtn = document.getElementById('play-story');
+    let currentStoryIndex = 0;
+    let timerWidth = 0;
+    let timerInterval;
+    let isPaused = false;
+
+    stories.forEach((story, index) => {
+      story.parentElement.addEventListener('click', () => openStory(index));
+    });
+
+    prevBtn.addEventListener('click', showPreviousStory);
+    nextBtn.addEventListener('click', showNextStory);
+    closeBtn.addEventListener('click', closeStory);
+    pauseBtn.addEventListener('click', pauseStory);
+    playBtn.addEventListener('click', resumeStory);
+    storyImg.addEventListener('click', togglePlayPause);
+
+    function openStory(index) {
+      currentStoryIndex = index;
+      storyImg.src = stories[currentStoryIndex].src;
+      overlay.style.display = 'flex';
+      startTimer();
+    }
+
+    function closeStory() {
+      overlay.style.display = 'none';
+      clearInterval(timerInterval);
+      resetTimer();
+    }
+
+    function showPreviousStory() {
+      if (currentStoryIndex > 0) {
+        currentStoryIndex--;
+        openStory(currentStoryIndex);
+      }
+    }
+
+    function showNextStory() {
+      if (currentStoryIndex < stories.length - 1) {
+        currentStoryIndex++;
+        openStory(currentStoryIndex);
+      } else {
+        closeStory();
+      }
+    }
+
+    function startTimer() {
+      resetTimer();
+      isPaused = false;
+      pauseBtn.style.display = 'block';
+      playBtn.style.display = 'none';
+      timerInterval = setInterval(() => {
+        timerWidth += (100 / 150); // 150 = 15 seconds in 100ms increments
+        if (timerWidth >= 100) {
+          showNextStory();
+        } else {
+          storyTimer.style.width = timerWidth + '%';
+        }
+      }, 100);
+    }
+
+    function togglePlayPause() {
+      if (isPaused) {
+        resumeStory();
+      } else {
+        pauseStory();
+      }
+    }
+
+    function pauseStory() {
+      clearInterval(timerInterval);
+      isPaused = true;
+      pauseBtn.style.display = 'none';
+      playBtn.style.display = 'block';
+    }
+
+    function resumeStory() {
+      if (isPaused) {
+        isPaused = false;
+        pauseBtn.style.display = 'block';
+        playBtn.style.display = 'none';
+        timerInterval = setInterval(() => {
+          timerWidth += (100 / 150); // 150 = 15 seconds in 100ms increments
+          if (timerWidth >= 100) {
+            showNextStory();
+          } else {
+            storyTimer.style.width = timerWidth + '%';
+          }
+        }, 100);
+      }
+    }
+
+    function resetTimer() {
+      timerWidth = 0;
+      storyTimer.style.width = '0';
+    }
+  });
+</script>
+
+<style>
+  .story-container-1 .single-create-story {
+    height: 175px;
+    width: 110px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  img.single-create-story-bg {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+  }
+
+  .story-container-1 .single-story {
+    height: 175px;
+    width: 110px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .story-container-1 .single-story::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
+  .story-container-1 .single-story-self {
+    height: 175px;
+    width: 110px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .story-container-1 .single-story-self::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
+  img.single-story-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .story-container-1 .story-author {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    right: 0;
+    text-align: center;
+    z-index: 99;
+    cursor: pointer;
+  }
+
+  .story-author img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 1px solid white;
+    padding: 4px;
+  }
+
+  .story-container-1 .story-author p {
+    color: #fff;
+    width: 100%;
+    margin: 5px 0 0 0;
+    font-weight: 600;
+    font-size: 12px;
+  }
+
+  .create-story-author p {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 500;
+  }
+</style>
+
+<a href="/create-post" style="text-decoration: none;">
+  <section class="post-box" style="margin-top: 8px; margin-bottom: 1px;">
+    <div class="container post-content">
+      <div class="row d-flex justify-content-center">
+        <div class="col-md-12 col-lg-10 col-xl-8">
+
+          <div class="mb-2 d-flex justify-content-center" style="white-space: nowrap; margin-right: -5px;">
+            <div style="margin-left: 12px;" class="parent-image">
+              <img class="rounded-circle shadow-1-strong" src="{{user.Profile_image.url}}" alt="avatar" width="40"
+                height="40" />
+            </div>
+
+            <div class="bg-dark container">
+              <input style="outline: none; box-shadow: none; margin-left: -8px;" class="form-control"
+                id="textAreaExample" placeholder="What's on your mind...">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</a>
+
+<hr style="width: 750px; margin: 0 auto; max-width: 100%;">
+
+<style>
+  .parent-image {
+    height: 40px;
+    width: 40px;
+  }
+
+  .parent-image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .parent-image-2 {
+    height: 60px;
+    width: 60px;
+  }
+
+  .parent-image-2 img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: 500px) {
+    .parent-image-2 {
+      height: 45px;
+      width: 45px;
+    }
+
+    .parent-image-2 img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+</style>
+
+{% for post in posts %}
+<section class="post-box comment-toggle">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-12 col-lg-10 col-xl-8">
+        <div class="card" style="border: none;">
+          <div class="card-body">
+        
+            <div class="d-flex flex-start align-items-center my-1">
+              <a class="stop-it" href="/user_profile/{{post.post.user.uid}}" style="text-decoration: none;">
+                <div class="parent-image-2 me-2">
+                  <img class="rounded-circle shadow-1-strong" src="
+                  {% if post.post.user.Profile_image %}
+                  {{post.post.user.Profile_image.url}}
+                  {% else %}
+                    data:image/png;base64,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
+                  {% endif %}
+                  " alt="avatar"
+                    width="60" height="60" />
+                </div>
+              </a>
+              <div class="flex-grow-1">
+                <a class="stop-it" href="/user_profile/{{post.post.user.uid}}" style="text-decoration: none;">
+                  <h6 class="fw-bold text-light mb-1">
+                    {{post.post.user.user.first_name}}&nbsp;{{post.post.user.user.last_name}}
+                    {% if post.post.user.verified %}
+                    <span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 28" fill="none"><g id="SVGRepo_bgCarrier" stroke-width="0"/><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/><g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M9.5924 3.20027C9.34888 3.4078 9.22711 3.51158 9.09706 3.59874C8.79896 3.79854 8.46417 3.93721 8.1121 4.00672C7.95851 4.03705 7.79903 4.04977 7.48008 4.07522C6.6787 4.13918 6.278 4.17115 5.94371 4.28923C5.17051 4.56233 4.56233 5.17051 4.28923 5.94371C4.17115 6.278 4.13918 6.6787 4.07522 7.48008C4.04977 7.79903 4.03705 7.95851 4.00672 8.1121C3.93721 8.46417 3.79854 8.79896 3.59874 9.09706C3.51158 9.22711 3.40781 9.34887 3.20027 9.5924C2.67883 10.2043 2.4181 10.5102 2.26522 10.8301C1.91159 11.57 1.91159 12.43 2.26522 13.1699C2.41811 13.4898 2.67883 13.7957 3.20027 14.4076C3.40778 14.6511 3.51158 14.7729 3.59874 14.9029C3.79854 15.201 3.93721 15.5358 4.00672 15.8879C4.03705 16.0415 4.04977 16.201 4.07522 16.5199C4.13918 17.3213 4.17115 17.722 4.28923 18.0563C4.56233 18.8295 5.17051 19.4377 5.94371 19.7108C6.278 19.8288 6.6787 19.8608 7.48008 19.9248C7.79903 19.9502 7.95851 19.963 8.1121 19.9933C8.46417 20.0628 8.79896 20.2015 9.09706 20.4013C9.22711 20.4884 9.34887 20.5922 9.5924 20.7997C10.2043 21.3212 10.5102 21.5819 10.8301 21.7348C11.57 22.0884 12.43 22.0884 13.1699 21.7348C13.4898 21.5819 13.7957 21.3212 14.4076 20.7997C14.6511 20.5922 14.7729 20.4884 14.9029 20.4013C15.201 20.2015 15.5358 20.0628 15.8879 19.9933C16.0415 19.963 16.201 19.9502 16.5199 19.9248C17.3213 19.8608 17.722 19.8288 18.0563 19.7108C18.8295 19.4377 19.4377 18.8295 19.7108 18.0563C19.8288 17.722 19.8608 17.3213 19.9248 16.5199C19.9502 16.201 19.963 16.0415 19.9933 15.8879C20.0628 15.5358 20.2015 15.201 20.4013 14.9029C20.4884 14.7729 20.5922 14.6511 20.7997 14.4076C21.3212 13.7957 21.5819 13.4898 21.7348 13.1699C22.0884 12.43 22.0884 11.57 21.7348 10.8301C21.5819 10.5102 21.3212 10.2043 20.7997 9.5924C20.5922 9.34887 20.4884 9.22711 20.4013 9.09706C20.2015 8.79896 20.0628 8.46417 19.9933 8.1121C19.963 7.95851 19.9502 7.79903 19.9248 7.48008C19.8608 6.6787 19.8288 6.278 19.7108 5.94371C19.4377 5.17051 18.8295 4.56233 18.0563 4.28923C17.722 4.17115 17.3213 4.13918 16.5199 4.07522C16.201 4.04977 16.0415 4.03705 15.8879 4.00672C15.5358 3.93721 15.201 3.79854 14.9029 3.59874C14.7729 3.51158 14.6511 3.40781 14.4076 3.20027C13.7957 2.67883 13.4898 2.41811 13.1699 2.26522C12.43 1.91159 11.57 1.91159 10.8301 2.26522C10.5102 2.4181 10.2043 2.67883 9.5924 3.20027ZM16.3735 9.86314C16.6913 9.5453 16.6913 9.03 16.3735 8.71216C16.0557 8.39433 15.5403 8.39433 15.2225 8.71216L10.3723 13.5624L8.77746 11.9676C8.45963 11.6498 7.94432 11.6498 7.62649 11.9676C7.30866 12.2854 7.30866 12.8007 7.62649 13.1186L9.79678 15.2889C10.1146 15.6067 10.6299 15.6067 10.9478 15.2889L16.3735 9.86314Z" fill="#ebac00"/> </g></svg></span>
+                    {% endif %}
+                  </h6>
+                </a>
+                <p class="text-muted small mb-0">
+                  {% load my_filters %}
+                  {{ post.post.created_at|facebook_timestamp }}
+                </p>
+              </div>
+
+              {% if post.post.user.user == request.user %}
+              <a class="ml-auto stop-it">
+
+                <div class="btn-group">
+                  <a class="btn" style="border: none;" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 16 16" fill="white"
+                      class="bi bi-three-dots-vertical">
+                      <path
+                        d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+                    </svg>
+                  </a>
+
+                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-lg-start">
+                    <li><a class="dropdown-item delete-post" id="delete-post" data-sno="{{ post.post.sno }}"
+                        href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                          fill="none">
+                          <path d="M10 12V17" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                          <path d="M14 12V17" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                          <path d="M4 7H20" stroke="white" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                          <path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" stroke="white"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                          <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="white"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg> Delete</a></li>
+                    <li><a href="#" class="dropdown-item"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                          height="16" viewBox="0 2 24 24" fill="none">
+                          <g id="SVGRepo_bgCarrier" stroke-width="0" />
+                          <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
+                          <g id="SVGRepo_iconCarrier">
+                            <path
+                              d="M21.2799 6.40005L11.7399 15.94C10.7899 16.89 7.96987 17.33 7.33987 16.7C6.70987 16.07 7.13987 13.25 8.08987 12.3L17.6399 2.75002C17.8754 2.49308 18.1605 2.28654 18.4781 2.14284C18.7956 1.99914 19.139 1.92124 19.4875 1.9139C19.8359 1.90657 20.1823 1.96991 20.5056 2.10012C20.8289 2.23033 21.1225 2.42473 21.3686 2.67153C21.6147 2.91833 21.8083 3.21243 21.9376 3.53609C22.0669 3.85976 22.1294 4.20626 22.1211 4.55471C22.1128 4.90316 22.0339 5.24635 21.8894 5.5635C21.7448 5.88065 21.5375 6.16524 21.2799 6.40005V6.40005Z"
+                              stroke="white" stroke-width="1.7759999999999998" stroke-linecap="round"
+                              stroke-linejoin="round" />
+                            <path
+                              d="M11 4H6C4.93913 4 3.92178 4.42142 3.17163 5.17157C2.42149 5.92172 2 6.93913 2 8V18C2 19.0609 2.42149 20.0783 3.17163 20.8284C3.92178 21.5786 4.93913 22 6 22H17C19.21 22 20 20.2 20 18V13"
+                              stroke="white" stroke-width="1.7759999999999998" stroke-linecap="round"
+                              stroke-linejoin="round" />
+                          </g>
+                        </svg>&nbsp;Edit</a></li>
+                  </ul>
+                </div>
+              </a>
+
+              {% endif %}
+
+              <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+              <script>
+                $(document).ready(function () {
+                  var postId;
+                  var postElement;
+
+                  // Show the modal when delete button is clicked
+                  $(document).on('click', '.delete-post', function (e) {
+                    e.preventDefault();
+                    postId = $(this).data('sno');
+                    postElement = $(this).closest('section.post-box'); // Get the closest post element
+                    $('#deleteModal').modal('show');
+                  });
+
+                  // Handle the confirmation of deletion
+                  $('#confirmDelete').click(function () {
+                    $.ajax({
+                      type: 'POST',
+                      url: '/delete_post/' + postId + '/',
+                      data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                      },
+                      success: function () {
+                        $('#deleteModal').modal('hide');
+                        postElement.remove(); // Remove the post element from the DOM
+                      },
+                      error: function (xhr, status, error) {
+                        console.error("Error:", xhr.responseJSON.error || 'An error occurred.');
+                        $('#deleteModal').modal('hide');
+                      }
+                    });
+                  });
+                });
+
+              </script>
+              <div class="modal stop-it" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Are you sure you want to delete this post?
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                      <button type="button" class="btn btn-danger" id="confirmDelete">Delete</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <input type="hidden" id="post-id" value="{{post.post.sno}}">
+          <input type="hidden" id="poster-user-id" value="{{post.post.user.uid}}">
+
+          <!-- No Image -->
+
+          <style>
+            @media (max-width: 500px) {
+              .post-text {
+                font-size: 11px;
+              }
+            }  .modal-header, .modal-footer {
+    border: none;
+  }
+          </style>
+
+          {% if post.post.post_title %}
+          <p class="preserve-whitespace post-text text-center text-brand">{{ post.post.post_title }}</p>
+          {% endif %}
+
+          {% if post.post.post_image.count > 0 %}
+
+          {% if post.post.post_image.count == 1 %}
+          <div class=" mb-2 parent-image-5">
+            <img class="rounded w-100" src="{{ post.post.post_image.first.image.url }}" alt="Post Image">
+          </div>
+          {% else %}
+          <div id="carouselExampleIndicators-{{ post.post.sno }}" class="carousel slide py-2 mb-2"
+            data-bs-ride="carousel">
+            <div class="carousel-inner">
+              {% for image in post.post.post_image.all %}
+              <div class="carousel-item parent-image-3 {% if forloop.first %}active{% endif %}">
+                <img class="d-block w-100 rounded" src="{{ image.image.url }}" alt="Slide Image">
+              </div>
+              {% endfor %}
+            </div>
+
+            <style>
+              @media (max-width: 500px) {
+                .post-text {
+                  font-size: 11px;
+                }
+
+                .parent-image-3 {
+                  border-radius: 12px;
+                  height: 200px;
+                  max-height: 300px;
+                  width: 100%;
+                }
+
+                .parent-image-3 img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+
+                .parent-image-5 {
+                  width: 100%;
+                  max-height: 300px;
+                  overflow: hidden;
+                  border-radius: 7px;
+                }
+
+                .parent-image-5 img {
+                  width: 100%;
+                  height: auto;
+                  object-fit: cover;
+                }
+              }
+
+              @media (min-width: 501px) {
+                .parent-image-3 {
+                  border-radius: 12px;
+                  height: 500px;
+                  max-height: 1000px;
+                  width: 100%;
+                }
+
+                .parent-image-3 img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                }
+
+                .parent-image-5 {
+                  width: 100%;
+                  max-height: 500px;
+                  overflow: hidden;
+                  border-radius: 7px;
+                }
+
+                .parent-image-5 img {
+                  width: 100%;
+                  height: auto;
+                  object-fit: cover;
+                }
+              }
+            </style>
+
+            {% if post.post.post_image.count > 1 %}
+            <a class="carousel-control-prev stop-it" href="#carouselExampleIndicators-{{ post.post.sno }}" role="button"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next stop-it" href="#carouselExampleIndicators-{{ post.post.sno }}" role="button"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </a>
+            {% endif %}
+          </div>
+          {% endif %}
+          {% endif %}
+
+
+
+          <div class="d-flex justify-content-around align-items-center stop-it">
+
+            <div class="card m-1 d-flex" style="border: none; background-color: #2a2f33; border-radius: 12px; width: 100px;">
+              <div class="mx-4 my-2 mb-2 buttn-txt buttn text-center d-flex align-items-center justify-content-between">
+                <span class="me-2" style="color: #fff;" id="R-likes-count-{{ post.post.sno }}">{{ post.R_likes }}</span>
+                
+                {% if post.liked %}
+                <a href="#" class="like-btn" style="background-color: #2a2f33; text-decoration: none; color: white; font-weight: 500;" data-post-id="{{ post.post.sno }}" data-liked="true">
+                  <svg id="like-svg-{{ post.post.sno }}" fill="#FF0000" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="25" height="25" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                    <path d="M48,5c-4.418,0-8.418,1.791-11.313,4.687l-3.979,3.961c-0.391,0.391-1.023,0.391-1.414,0  c0,0-3.971-3.97-3.979-3.961C24.418,6.791,20.418,5,16,5C7.163,5,0,12.163,0,21c0,3.338,1.024,6.436,2.773,9  c0,0,0.734,1.164,1.602,2.031s24.797,24.797,24.797,24.797C29.953,57.609,30.977,58,32,58s2.047-0.391,2.828-1.172  c0,0,23.93-23.93,24.797-24.797S61.227,30,61.227,30C62.976,27.436,64,24.338,64,21C64,12.163,56.837,5,48,5z M57,22  c-0.553,0-1-0.447-1-1c0-4.418-3.582-8-8-8c-0.553,0-1-0.447-1-1s0.447-1,1-1c5.522,0,10,4.478,10,10C58,21.553,57.553,22,57,22z" />
+                  </svg>
+                </a>
+                {% else %}
+                <a href="#" class="like-btn" style="background-color: #2a2f33; text-decoration: none; color: white; font-weight: 500;" data-post-id="{{ post.post.sno }}" data-liked="false">
+                  <svg id="like-svg-{{ post.post.sno }}" fill="white" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0" width="25" height="25" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                    <path d="M48,5c-4.418,0-8.418,1.791-11.313,4.687l-3.979,3.961c-0.391,0.391-1.023,0.391-1.414,0  c0,0-3.971-3.97-3.979-3.961C24.418,6.791,20.418,5,16,5C7.163,5,0,12.163,0,21c0,3.338,1.024,6.436,2.773,9  c0,0,0.734,1.164,1.602,2.031s24.797,24.797,24.797,24.797C29.953,57.609,30.977,58,32,58s2.047-0.391,2.828-1.172  c0,0,23.93-23.93,24.797-24.797S61.227,30,61.227,30C62.976,27.436,64,24.338,64,21C64,12.163,56.837,5,48,5z M57,22  c-0.553,0-1-0.447-1-1c0-4.418-3.582-8-8-8c-0.553,0-1-0.447-1-1s0.447-1,1-1c5.522,0,10,4.478,10,10C58,21.553,57.553,22,57,22z" />
+                  </svg>
+                </a>
+                {% endif %}
+                
+              </div>
+            </div>
+
+
+            <div class="card m-1 d-flex" style="border: none; background-color: #2a2f33; border-radius: 12px; width: 100px;">
+              <div class="mx-4 my-2 mb-2 buttn-txt buttn text-center d-flex align-items-center justify-content-between">
+                <span class="me-2" style="color: #fff;">{{ post.comments }}</span>
+                
+
+                <a href="/post-details/{{post.post.sno}}" class="">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.0"
+                    id="Layer_1" width="22" height="22" viewBox="0 0 64 64" xml:space="preserve">
+                    <path fill="white"
+                      d="M60,0H4C1.789,0,0,1.789,0,4v40c0,2.211,1.789,4,4,4h8v15c0,0.404,0.243,0.77,0.617,0.924  C12.741,63.976,12.871,64,13,64c0.26,0,0.516-0.102,0.707-0.293L29.414,48H60c2.211,0,4-1.789,4-4V4C64,1.789,62.211,0,60,0z M15,14  h16c0.553,0,1,0.447,1,1s-0.447,1-1,1H15c-0.553,0-1-0.447-1-1S14.447,14,15,14z M45,34H15c-0.553,0-1-0.447-1-1s0.447-1,1-1h30  c0.553,0,1,0.447,1,1S45.553,34,45,34z M14,27c0-0.553,0.447-1,1-1h24c0.553,0,1,0.447,1,1s-0.447,1-1,1H15  C14.447,28,14,27.553,14,27z M49,22H15c-0.553,0-1-0.447-1-1s0.447-1,1-1h34c0.553,0,1,0.447,1,1S49.553,22,49,22z" />
+                  </svg>
+                </a>
+
+              </div>
+            </div>
+
+            <div class="card m-1 d-flex my-2"
+              style="border: none; background-color: #2a2f33; border-radius: 12px; width: 100px;">
+              <div class="mx-4 my-2 mb-2 buttn-txt buttn text-center">
+                <a class="">
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" height="25"
+                    width="25" version="1.1" id="_x32_" viewBox="0 0 512 512" xml:space="preserve">
+                    <style type="text/css">
+                      .st0 {
+                        fill: rgb(173, 173, 173);
+                      }
+                    </style>
+                    <g>
+                      <path class="st0"
+                        d="M512,255.995L277.045,65.394v103.574c-17.255,0-36.408,0-57.542,0c-208.59,0-249.35,153.44-201.394,266.128   c9.586-103.098,142.053-100.701,237.358-100.701c7.247,0,14.446,0,21.578,0v112.211L512,255.995z" />
+                    </g>
+                  </svg>
+                </a>
+
+              </div>
+            </div>
+
+          </div>
+
+          <small class="text-body-secondary "></small></small>
+
+
+          <div class="comment-section stop-it mb-2">
+            <div class="bg-dark mt-2">
+              <form method="POST" id="post-form">
+                {% csrf_token %}
+                <div class="d-flex flex-start w-100 ">
+                  <div class="parent-image me-1">
+                    <img class="rounded-circle me-3" src="{{post.post.user.Profile_image.url}}" alt="avatar" width="36"
+                      height="36" />
+                  </div>
+                  <div class="form-outline w-100">
+                    <textarea class="form-control" id="comment_text" rows="1" name="comment_text"
+                      placeholder="Write a comment..."></textarea>
+                  </div>
+                </div>
+                <div class="float-end mt-2 pt-1">
+                  <button type="submit" class="btn btn-sm text-black fw-bold"
+                    style="background-color: #ebac00;">Post</button>
+                </div>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+
+<hr style="width: 750px; margin: 0 auto; max-width: 100%;">
+
+{% endfor %}
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+  // Posting the comment 
+
+
+
+
+  $(document).on('submit', ".post-box form", function (e) {
+    e.preventDefault();
+
+    // Find the closest .post-box relative to the submitted form
+    var $postBox = $(this).closest('.post-box');
+
+    $.ajax({
+      type: 'POST',
+      url: 'create_comment/',
+      data: {
+        comment_text: $postBox.find('#comment_text').val(),
+        post_id: $postBox.find('#post-id').val(),  // Retrieve post_id within the current post-box
+        poster_user_id: $postBox.find('#poster-user-id').val(),  // Retrieve poster_user_id within the current post-box
+        csrfmiddlewaretoken: $postBox.find("input[name=csrfmiddlewaretoken]").val(),  // Find CSRF token within the current post-box
+      },
+      success: function (data) {
+        $postBox.find('#comment_text').val('');
+        // Hide the comment section in the current post-box upon successful comment submission
+        $postBox.find('.comment-section').hide();
+      },
+      error: function (xhr, status, error) {
+        console.error("Error posting comment:", error);  // Log specific error
+        alert("Error posting comment. Please try again.");  // Display error message (replace with your logic)
+      },
+    });
+  });
+
+  // Likes function
+
+
+  document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.like-btn').forEach(function (btn) {
+    btn.addEventListener('click', function (event) {
+      event.preventDefault();
+      var postId = this.dataset.postId;
+      var liked = (this.dataset.liked === 'true');
+      var svg = document.querySelector('#like-svg-' + postId);
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', '/likes/' + postId + '/');
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      xhr.setRequestHeader('X-CSRFToken', '{{ csrf_token }}');
+      xhr.responseType = 'json';
+
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          var response = xhr.response;
+          var R_likesCount = response.R_likes;
+
+          document.querySelector('#R-likes-count-' + postId).textContent = R_likesCount;
+
+          if (response.liked) {
+            svg.setAttribute('fill', '#FF0000');
+            btn.dataset.liked = 'true';
+          } else {
+            svg.setAttribute('fill', 'white');
+            btn.dataset.liked = 'false';
+          }
+        } else {
+          console.error('Error:', xhr.statusText);
+        }
+      };
+
+      xhr.onerror = function () {
+        console.error('Request failed');
+      };
+
+      xhr.send();
+    });
+  });
+});
+
+
+
+  // Comment section opening
+
+  document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('click', function (e) {
+      if (e.target && e.target.closest('.comment-toggle')) {
+        e.preventDefault();
+        const commentSection = e.target.closest('.post-box').querySelector('.comment-section');
+        commentSection.style.display = commentSection.style.display === 'none' ? 'block' : 'none';
+      }
+    });
+
+    document.querySelectorAll('.comment-section input, .comment-section textarea, .comment-section button , .stop-it').forEach(function (element) {
+      element.addEventListener('click', function (e) {
+        e.stopPropagation();
+      });
+    });
+  });
+
+  // Navbar Behavior 
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const firstNavbar = document.querySelector('.navbar:first-of-type');
+    const secondNavbar = document.getElementById('navbar');
+    let lastScrollTop = 0;
+    let hideTimeout;
+
+    function setNavbarPosition() {
+      const firstNavbarHeight = firstNavbar ? firstNavbar.offsetHeight : 0;
+      secondNavbar.style.top = `${firstNavbarHeight}px`;
+    }
+
+    // Set the top position initially
+    setNavbarPosition();
+
+    // Adjust the top position on window resize
+    window.addEventListener('resize', setNavbarPosition);
+
+    // Adjust the top position on scroll
+    window.addEventListener('scroll', function () {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const firstNavbarHeight = firstNavbar ? firstNavbar.offsetHeight : 0;
+      clearTimeout(hideTimeout);
+
+      if (scrollTop > lastScrollTop) {
+        // Scroll Down
+        if (scrollTop < firstNavbarHeight) {
+          navbar.style.top = `-${firstNavbarHeight - scrollTop}px`;
+        } else {
+          navbar.style.top = `-${firstNavbarHeight}px`;
+        }
+      } else {
+        // Scroll Up
+        if (scrollTop === 0) {
+          secondNavbar.style.top = `${firstNavbarHeight}px`;
+        } else if (scrollTop < firstNavbarHeight) {
+          secondNavbar.style.top = `${firstNavbarHeight - scrollTop}px`;
+        } else {
+          secondNavbar.style.top = `0`;
+        }
+        hideTimeout = setTimeout(() => {
+          if (scrollTop > 0) {
+            secondNavbar.style.top = `-${firstNavbarHeight}px`;
+          }
+        }, 1000);
+      }
+      lastScrollTop = scrollTop;
+    });
+
+    // Initial check and adjustment
+    window.dispatchEvent(new Event('scroll'));
+  });
+
+</script>
+
+<style>
+  .comment-section {
+    display: none;
+  }
+
+  .navbar-custom {
+    transition: top 0.3s;
+  }
+</style>
+{% endblock %}
