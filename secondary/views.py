@@ -27,7 +27,7 @@ def home(request):
         return redirect("completeProfile")
     
     posts = Post.objects.prefetch_related('post_image').order_by("-created_at")
-    user = Profile.objects.get(user=request.user)
+    user = Profile.objects.filter(user=request.user).first()    
     notifications = Notifications.objects.filter(notification_for = user , is_read = False).count()
     print(notifications)
     
@@ -169,7 +169,7 @@ def completeProfile(request):
         Profile.save(profile)
 
         if all([profile_image, cover_image, bio, phone_number, education]):
-            completed = Completed(completed="true")
+            completed = Completed(user=request.user, completed="true")
             completed.save()
 
         return redirect("profile_page")
@@ -209,7 +209,7 @@ def post_details(request , sno):
     if not comp or comp.completed != "true":
         return redirect("completeProfile")
     if request.method == "POST":
-        user = Profile.objects.get(user=request.user)
+        user = Profile.objects.filter(user=request.user).first()    
         comment_text = request.POST.get("comment_text")
         post_id = request.POST.get("post_id")
         post = Post.objects.get(sno=post_id)
@@ -230,7 +230,7 @@ def post_details(request , sno):
     post = Post.objects.get(sno = sno)
     comments = Comments.objects.filter(post = post , parent__isnull = True).order_by("-comment_time")
     
-    user = Profile.objects.get(user = request.user)
+    user = Profile.objects.filter(user=request.user).first()
     comments_count = Comments.objects.filter(post = post).count()
     liked = Loves.objects.filter(user=user, post=post).exists()
     likes = Loves.objects.filter(post=post).values('user').distinct().count()
@@ -274,7 +274,7 @@ def create_post(request):
         post_text = request.POST.get("post-text")
         post_privacy = request.POST.get("post-privacy")
         post_images = request.FILES.getlist("post-images")
-        user = Profile.objects.get(user=request.user)
+        user = Profile.objects.filter(user=request.user).first()    
         
         post = Post(post_title=post_text, post_privacy=post_privacy, user=user)
         post.save()
@@ -302,7 +302,7 @@ def create_post(request):
         
         return redirect("/")
     
-    user = Profile.objects.get(user=request.user)
+    user = Profile.objects.filter(user=request.user).first()
     context = {
         "user": user,
     }
@@ -320,7 +320,8 @@ def profile_page(request):
 
     if not comp or comp.completed != "true":
         return redirect("completeProfile")
-    profile = Profile.objects.get(user = request.user)
+    profile = Profile.objects.filter(user=request.user).first()
+    
     # Countings 
     followers_count = Followers.objects.filter(following = profile).count()
     following_count = Followers.objects.filter(follower = profile).count()
@@ -379,7 +380,8 @@ def allPeople(request):
 
     if not comp or comp.completed != "true":
         return redirect("completeProfile")
-    user_profile = get_object_or_404(Profile, user=request.user)
+    
+    user_profile = Profile.objects.filter(user=request.user).first()
     people = Profile.objects.exclude(user=request.user)
     
     for person in people:
@@ -404,7 +406,7 @@ def follow_user(request, uid):
     if not comp or comp.completed != "true":
         return redirect("completeProfile")
     if request.method == 'POST':
-        user_profile = get_object_or_404(Profile, user=request.user)
+        user_profile = Profile.objects.filter(user=request.user).first()
         target_profile = get_object_or_404(Profile, uid=uid)
         if user_profile != target_profile:
             Followers.objects.get_or_create(follower=user_profile, following=target_profile)
@@ -427,7 +429,7 @@ def unfollow_user(request, uid):
     if not comp or comp.completed != "true":
         return redirect("completeProfile")
     if request.method == 'POST':
-        user_profile = get_object_or_404(Profile, user=request.user)
+        user_profile = Profile.objects.filter(user=request.user).first()
         target_profile = get_object_or_404(Profile, uid=uid)
         follow_relationship = Followers.objects.filter(follower=user_profile, following=target_profile)
         if follow_relationship.exists():
@@ -470,7 +472,7 @@ def following(request):
 
     if not comp or comp.completed != "true":
         return redirect("completeProfile")
-    user_profile = get_object_or_404(Profile, user=request.user)
+    user_profile = Profile.objects.filter(user=request.user).first()
     following = Followers.objects.filter(follower=user_profile).select_related('following')
     
     for follow in following:
@@ -494,7 +496,7 @@ def post_likes(request, post_id):
     if not comp or comp.completed != "true":
         return redirect("completeProfile")
     post = get_object_or_404(Post, sno=post_id)
-    user = Profile.objects.get(user=request.user)
+    user = Profile.objects.filter(user=request.user).first()    
     liked = Loves.objects.filter(user=user, post=post).exists()
 
     if not liked:
@@ -564,7 +566,7 @@ def create_comment(request):
     if not comp or comp.completed != "true":
         return redirect("completeProfile")
     if request.method == "POST":
-        user = Profile.objects.get(user=request.user)
+        user = Profile.objects.filter(user=request.user).first()    
         comment_text = request.POST.get("comment_text", "").strip()
         post_id = request.POST.get("post_id")
         parent_comment_id = request.POST.get("parent_comment_id")
@@ -626,7 +628,7 @@ def userProfile(request , uid):
     if not comp or comp.completed != "true":
         return redirect("completeProfile")
     profile = Profile.objects.get(uid = uid)
-    user_profile = get_object_or_404(Profile, user=request.user)
+    user_profile = Profile.objects.filter(user=request.user).first()
     people = profile
     
     if profile.user == request.user :
@@ -746,7 +748,7 @@ def change_name(request):
 
     if not comp or comp.completed != "true":
         return redirect("completeProfile")
-    current_name = Profile.objects.get(user = request.user)
+    current_name = Profile.objects.filter(user=request.user).first()
     if request.method == "POST":
         f_name = request.POST.get("f_name")
         l_name = request.POST.get("l_name")
@@ -800,7 +802,7 @@ def change_email(request):
         else :
             messages.error(request , "The password you entered is incorrect.")
             
-    user = Profile.objects.get(user = request.user)
+    user = Profile.objects.filter(user=request.user).first()
     email = user.user.email
     context = {
         "data" : "email",
@@ -859,7 +861,7 @@ def showNotifications(request):
 
     if not comp or comp.completed != "true":
         return redirect("completeProfile")
-    user = Profile.objects.get(user = request.user)
+    user = Profile.objects.filter(user=request.user).first()
     notification = Notifications.objects.filter(notification_for = user).order_by("-created_time")
     context = {
         "notification" : notification
@@ -912,7 +914,7 @@ def poll_notifications(request):
 
     if not comp or comp.completed != "true":
         return redirect("completeProfile")
-    user = Profile.objects.get(user=request.user)
+    user = Profile.objects.filter(user=request.user).first()    
     notifications = Notifications.objects.filter(notification_for=user).order_by("-created_time").values('notification_id', 'is_read')
     return JsonResponse({'notifications': list(notifications)})
 
@@ -980,7 +982,7 @@ def helpPage(request):
     
     if request.method == "POST":
         message = request.POST.get("help_text")
-        user = Profile.objects.get(user = request.user)
+        user = Profile.objects.filter(user=request.user).first()
         help = HelpMessage.objects.create(message_body = message , user = user)
         messages.success(request , "Your message was submitted successfully we will notify you soon.")
         
@@ -996,7 +998,7 @@ def commentLoves(request , comment_id):
         return redirect("loginUser")
     
     comment = Comments.objects.get(comment_id = comment_id)
-    user = Profile.objects.get(user = request.user)
+    user = Profile.objects.filter(user=request.user).first()
     
     loved = CommentLoves.objects.filter(comment = comment , user = user).exists()
     
@@ -1032,7 +1034,7 @@ def message(request , uid):
     if not comp or comp.completed != "true":
         return redirect("completeProfile")
     profile = Profile.objects.get(uid = uid)
-    user = Profile.objects.get(user = request.user)
+    user = Profile.objects.filter(user=request.user).first()
     
     if request.method == "POST":
         message_body = request.POST.get("message_body")
@@ -1077,7 +1079,7 @@ def peopleList(request):
 
     if not comp or comp.completed != "true":
         return redirect("completeProfile")
-    user = Profile.objects.get(user=request.user)
+    user = Profile.objects.filter(user=request.user).first()    
     followers = Followers.objects.filter(follower=user)
     
     data = []

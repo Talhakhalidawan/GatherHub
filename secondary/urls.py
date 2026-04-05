@@ -15,7 +15,6 @@ class UUIDConverter:
     def to_url(self, value):
         return str(value)
 
-register_converter(UUIDConverter, 'uuid')
 
 urlpatterns = [
     path("" , home , name = "home"),
