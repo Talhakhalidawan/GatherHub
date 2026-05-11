@@ -1,4 +1,4 @@
-# GatherHub
+# GatherHub - My first dumb slop
 
 GatherHub is a feature-rich social networking platform built with Django. The application provides a space for users to connect, share posts, follow friends, and engage through comments and likes.
 
